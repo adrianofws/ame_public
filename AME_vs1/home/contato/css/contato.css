@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image:linear-gradient( rgba(255,255,255,.95) 0%,rgba(255,255,255,.7) 500%), url(../imagens/ame_bg.jpg);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+    }
+
+.container {
+    
+    padding: 16px;
+    background-repeat: no-repeat;
+    background-color:transparent;
+    width: 30%;
+    margin: auto;
+}
+.container h1{
+    text-align: center;
+}
+::-moz-placeholder{
+    color: gray;
+    font-style: italic;
+}
+::-webkit-input-placeholder {
+    color: gray;
+    font-style: italic;
+ }
+ ::-ms-input-placeholder {  
+    color: gray;
+    font-style: italic;
+ }
+input[type=text]{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background:#FDFDFD;
+    }
+
+    input[type=text]:focus{
+    background-color: #ddd;
+    outline: none;
+    }
+#restaContainer{
+    font-style: italic;
+    color: gray;
+}
+#msg{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+#btn{
+    padding-top: 15px;
+}
+#enviarbtn{
+    background-color: rgb(219, 63, 206);
+    color: white;
+    width: 150px;
+    height: 40px;
+    margin-left: 390px;
+}
+#enviarbtn:hover{
+    background: rgb(219, 63, 206, 0.5);
+}
