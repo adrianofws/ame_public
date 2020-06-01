@@ -143,7 +143,7 @@ main{
     overflow: auto;
     line-height: 1.5;       
 }
-.content-section-cards a.comodoar{
+.content-section-cards a.ame-cards{
     color: white;
     text-decoration: none;
     font-size: 20px;
@@ -225,4 +225,12 @@ footer{
     line-height: 40px;
     background-color: #3c87ed;
     color: white;
+}
+#mito{
+    text-transform: uppercase;
+    color: red;
+}
+#verdade{
+    text-transform: uppercase;
+    color: green;
 }
