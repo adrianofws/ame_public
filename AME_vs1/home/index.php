@@ -194,41 +194,41 @@
                                 se alimenta com o leite produzido pela sua mãe. O leite materno tem todas as substâncias na quantidade certa de que o bebê precisa para crescer 
                                 e se desenvolver sadio. O leite do início da mamada é mais “ralo”, pois contém mais água, menos gordura e grande quantidade de fatores de defesa. 
                                 Contém também mais vitaminas e sais minerais. O leite do fim da mamada é mais grosso, visto que tem mais gordura e engorda o bebê. O bebê precisa 
-                                do leite do começo e do fim da mamada.</p>
+                                do leite do começo e do fim da mamada</p>
                             <h3>Só o meu leite não sustenta e o bebê chora com fome.</h3>
                             <p><strong id="mito">MITO</strong>. Nem sempre que o bebê chora é porque está com fome. Ele pode estar com cólica, frio ou calor, molhado, ou simplesmente querendo carinho (colo). 
                                 Lembre-se de que o choro é a única forma de o bebê se comunicar nos primeiros meses de vida. O importante é que ele esteja crescendo bem, o que pode 
-                                ser verificado pelos gráficos na Caderneta da Criança, e urinando mais do que seis vezes a cada 24 horas.
+                                ser verificado pelos gráficos na Caderneta da Criança, e urinando mais do que seis vezes a cada 24 horas
                             </p>
                             <p>
                             <h3>Criança que nasceu prematura (antes do tempo) ou com baixo peso (menos de 2 quilos e meio) não deve mamar no peito.</h3>
                             <p><strong id="mito">MITO</strong>. Estes bebês podem ter dificuldades de sugar no início, mas são os que mais precisam da proteção do leite materno. Conforme eles crescem, sugam com 
-                                maior facilidade. Se o bebê tiver dificuldade de sugar, retire o leite, coloque-o em um recipiente limpo e ofereça com colher ou na xícara de café/copinho.
+                                maior facilidade. Se o bebê tiver dificuldade de sugar, retire o leite, coloque-o em um recipiente limpo e ofereça com colher ou na xícara de café/copinho
                             </p>
                             <h3>Dar de mamar faz os peitos caírem.</h3>
                             <p><strong id="mito">MITO</strong>. A queda do peito depende de vários fatores: hereditários, idade, aumento de peso, musculatura de sustentação das mamas. A própria gravidez causa 
-                                mudança na sua forma e posição.
+                                mudança na sua forma e posição
                             </p>
                             <h3>A amamentação imediatamente após o parto é saudável.</h3>
                             <p><strong id="verdade">VERDADE</strong>. Alimentar os bebês imediatamente após o nascimento pode reduzir consideravelmente os riscos de mortalidade neonatal, 
                                 além de contribuir para a recuperação da mulher. Quanto mais cedo acontecer a primeira mamada, maiores as chances de uma amamentação bem-sucedida, além de 
-                                estimular e fortalecer o vínculo mãe e bebê.
+                                estimular e fortalecer o vínculo mãe e bebê
                             </p>
                             <h3>Seios pequenos produzem menos leite.</h3>
                             <p><strong id="mito">MITO</strong>. O que dá o tamanho dos seios é o tecido gorduroso e não a glândula produtora de leite, portanto, não depende do tamanho ou formato da mama. 
                                 Afinal, tamanho não é documento!
                             </p>
                             <h3>Criança que arrota mamando faz o peito inflamar ou o leite secar.</h3>
-                            <p><strong id="mito">MITO</strong>. Não há comprovação científica desta afirmação.
+                            <p><strong id="mito">MITO</strong>. Não há comprovação científica desta afirmação
                             </p>
                             <h3>Cerveja preta, canjica, água inglesa e outros alimentos aumentam a produção de leite.</h3>
-                            <p><strong id="mito">MITO</strong>. É verdade que a cerveja aumenta a quantidade de leite  por ser líquido, assim como a água e o suco. Mas bebidas alcoólicas não devem ser ingeridas, 
-                                pois o álcool passa rapidamente para o leite e pode ser muito prejudicial ao bebê.
+                            <p><strong id="mito">MITO</strong>. É verdade que a cerveja aumenta a quantidade de leite por ser líquido, assim como a água e o suco. Mas bebidas alcoólicas não devem ser ingeridas, 
+                                pois o álcool passa rapidamente para o leite e pode ser muito prejudicial ao bebê
 
                             </p>
                             <h3>A mulher que estiver amamentando pode ingerir bebidas ácidas como suco de laranja ou limão.</h3>
                             <p><strong id="verdade">VERDADE</strong>. Os alimentos ácidos não talham o leite. Não é necessário tomar mais leite de vaca para produzir mais leite. Recomenda-se que a mãe beba 
-                                bastante água todos os dias. Café, chá preto e refrigerante em grande quantidade podem provocar cólicas no bebê.
+                                bastante água todos os dias. Café, chá preto e refrigerante em grande quantidade podem provocar cólicas no bebê
                              </p>
 
                              <h3>As mães que têm anemia podem amamentar.</h3>
@@ -237,43 +237,43 @@
                              <h3>A amamentação ajuda a mulher a emagrecer.</h3>
                              <p><strong id="verdade">VERDADE</strong>. O aleitamento traz vários benefícios, além da perda de peso mais rápida após o parto, a amamentação ajuda o útero a recuperar seu tamanho 
                                 normal, reduz o risco de hemorragia, anemia e câncer de mama e de ovário. Durante a gestação, a mulher acumula peso para formar uma reserva energética justamente para ser gasta no 
-                                período da amamentação. Saiba que parte da gordura materna é transferida para o bebê pelo leite.
+                                período da amamentação. Saiba que parte da gordura materna é transferida para o bebê pelo leite
                              </p>
                              <h3>O leite materno pode ser congelado.</h3>
                              <p><strong id="verdade">VERDADE</strong>. Na geladeira, o leite materno deve ser armazenado até 12 horas. No freezer, pode durar até 15 dias. Essa é uma boa notícia para as mães que 
                              precisam retornar às suas atividades profissionais, sem recorrer ao leite industrializado. Para descongelar, o leite deve ser mantido na geladeira ou em água corrente morna. Não se deve deixar em temperatura 
-                                ambiente e nem esquentá-lo no fogão ou microondas.
+                                ambiente e nem esquentá-lo no fogão ou microondas
                              </p>
                              <h3>O tempo de amamentação depende de cada criança.</h3>
                              <p><strong id="verdade">VERDADE</strong>. Alguns bebês são rápidos e levam de 5 a 10 minutos para  mamar. Outros, não têm pressa e levam até 40 minutos. A mãe deve continuar amamentando até o bebê perder o interesse, 
                                 pois é ele quem vai determinar o tempo suficiente. A mãe deve buscar a melhor posição, seja sentada, em pé, deitada, e oferecer o seio à criança. Deve promover uma boa ‘pega’, com a 
-                                criança abocanhando a maior parte possível da aréola, para evitar fissuras.
+                                criança abocanhando a maior parte possível da aréola, para evitar fissuras
 
                              </p>
                              <h3>Simpatias e crendices podem alterar o leite.</h3>
                              <p><strong id="mito">MITO</strong>. A maioria das simpatias ou crendices não alteram o leite. Por exemplo: o bebê arrotar no peito, o leite pingar no chão, beber água durante a amamentação, nada disso altera a 
-                                quantidade e a qualidade do leite.
+                                quantidade e a qualidade do leite
                              </p>
                              <h3>Amamentar deixa os seios flácidos.</h3>
                              <p><strong id="mito">MITO</strong>. Amamentar não deixa os seios flácidos, a não ser que não haja cuidados básicos. A indicação é usar um sutiã de alças largas 
-                                e que sustente as mamas.
+                                e que sustente as mamas
                              </p>
                              <h3>Mãe que está amamentando não pode trabalhar fora.</h3>
                              <p><strong id="mito">MITO</strong>. A mãe pode dar de mamar nos períodos em que estiver em casa. Pode retirar e guardar seu leite para ser oferecido ao bebê 
-                                enquanto ela estiver fora.
+                                enquanto ela estiver fora
                              </p>
                              <h3>É preciso passar hidratantes ou pomadas medicinais para proteger o bico do peito.</h3>
                              <p><strong id="mito">MITO</strong>. O uso de hidratantes afina o tecido do bico do peito e da aréola (rodela escura do peito). A mãe deverá espremer um pouco de leite e passar ao redor 
-                                da aréola e bico antes e depois de cada mamada, para eliminar bactérias, umedecer e manter a elasticidade e hidratação da pele, evitando assim a ocorrência de rachaduras (fissuras).
+                                da aréola e bico antes e depois de cada mamada, para eliminar bactérias, umedecer e manter a elasticidade e hidratação da pele, evitando assim a ocorrência de rachaduras (fissuras)
 
                              </p>
                              <h3>O bebê é quem faz o horário de amamentação.</h3>
                              <p><strong id="mito">MITO</strong>. Nos primeiros meses, o bebê ainda não tem um horário para mamar. Dê o peito ao seu filho sempre que ele demonstrar fome. Com o tempo, ele vai fazer seu horário de mamadas. 
                                 Antes de começar a dar de mamar, lave as mãos. Sente-se em um local confortável e o ajude a pegar corretamente o peito. Após a mamada, passe o próprio leite no complexo mamilo 
-                                areolar, antes e após a mamada.
+                                areolar, antes e após a mamada
                              </p>
                              <h3>Existe uma posição ideal para amamentar.</h3>
-                             <p><strong id="mito">MITO</strong>. A melhor posição é aquela mais confortável para a mãe e o seu bebê.
+                             <p><strong id="mito">MITO</strong>. A melhor posição é aquela mais confortável para a mãe e o seu bebê
                              </p>
     
                     </article>
