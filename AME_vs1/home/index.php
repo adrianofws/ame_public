@@ -273,7 +273,7 @@
                                 areolar, antes e após a mamada.
                              </p>
                              <h3>Existe uma posição ideal para amamentar.</h3>
-                             <p><strong id="mito">MITO</strong>. A melhor posição é aquela mais confortável para a mãe e o seu bebê. TEste
+                             <p><strong id="mito">MITO</strong>. A melhor posição é aquela mais confortável para a mãe e o seu bebê.
                              </p>
     
                     </article>
