@@ -20,24 +20,33 @@
                     <ul>
                         <li><a class="login" href="#">Login</a></li>
                         <li><a class="conheca" href="#conheca">Conheça</a></li>
-                        <li><a class="duvidas" href="#duvidas">Dúvidas</a></li>
+                        <!--<li><a class="duvidas" href="#duvidas">Dúvidas</a></li>-->
                         <li><a class="doe" href="#">Doe vida</a></li>
                         <li><a class="cadastro" href="#">Cadastro</a></li>
                         <li><a class="parceiros" href="#parceiros">Parceiros</a></li>
-                        <li><a class="contato" href="contato/contato.php">Contato</a></li>
+                        <li><a class="contato" href="contato/contato.html">Contato</a></li>
                     </ul>
                 </nav>
                 
                 <div class="hero-content">
-                    <h1>Doe esperança<br>doe vida<br>doe amor</h1>                
+                    <h1>Doe esperança<br>doe vida<br>doe amor</h1>
+                    <div id="social-media-div">
+                        <h2>Siga-nos nas redes sociais</h2>
+                            <a href="#" class="fa fa-twitter"></a>
+                            <a href="#" class="fa fa-facebook"></a>
+                            <a href="#" class="fa fa-youtube"></a>
+                            <a href="#" class="fa fa-instagram"></a>
+                            <a href="#" class="fa fa-reddit"></a>
+                </div>                
                 </div>
-                <div id="social-media-div">
+                <!--<div id="social-media-div">
+                    <h2>Siga-nos nas redes sociais</h2>
                     <a href="#" class="fa fa-twitter"></a>
                     <a href="#" class="fa fa-facebook"></a>
                     <a href="#" class="fa fa-youtube"></a>
                     <a href="#" class="fa fa-instagram"></a>
                     <a href="#" class="fa fa-reddit"></a>
-                </div>
+                </div>-->
             </header>
             <main>
                 <section class="content-section-cards">
@@ -50,7 +59,7 @@
                         <p><a href="#comoarmazenar" class="ame-cards">Como armazenar</a></p>
                     </div>
                     <div class="card card-3">
-                        <img src="imagens/fases.jpg" alt="">
+                        <img src="imagens/mito_verdade.png" alt="">
                         <p><a href="#mitoseverdades" class="ame-cards">Mitos e verdades</a></p>
                     </div>
                 </section>
@@ -58,24 +67,52 @@
                     <article id="conheca">
                         <header>
                             <h2>
-                                Como funciona exatamente a doação de leite humano?
+                                Conheça
                             </h2>
+                            <h3>Como funciona exatamente a doação de leite materno?</h3>
                         </header>
+                        <img src="imagens/bebe1.png" class="img-bebe1" alt="bebe1">
                         <p>A doação de leite humano passa pelo processo de coleta, processamento e distribuição do leite humano para bebês prematuros internados de 
                             baixo peso (menos de 2,5 kg) e com patologias, principalmente do trato gastrointestinal, e que não podem ser alimentados diretamente pelas 
                             próprias mães. As evidências científicas indicam que bebês prematuros e/ou com patologias que se alimentam de leite humano no período de 
                             privação da amamentação possuem mais chances de recuperação e de terem uma vida mais saudável. Com o leite materno, o bebê prematuro ganha 
-                            peso mais rápido, se desenvolve com mais saúde e fica protegido de infecções.                       
-                            Todo o leite doado é analisado, pasteurizado e submetido a um rigoroso controle de qualidade antes de ser ofertado a uma criança, conforme 
+                            peso mais rápido, se desenvolve com mais saúde e fica protegido de infecções.</p>
+                            
+                        <p>Todo o leite doado é analisado, pasteurizado e submetido a um rigoroso controle de qualidade antes de ser ofertado a uma criança, conforme 
                             rege a legislação que regulamenta o funcionamento dos bancos de leite humano no Brasil, a RDC Nº 171. Após análises das suas características, 
                             o leite é distribuído de acordo com as necessidades específicas de cada recém-nascido internado.                            
                             O modelo brasileiro para Bancos de Leite Humano (BLH) é referência internacional e, desde 2005, o país exporta técnicas de baixo custo para 
                             implementar BLHs na América Latina, Caribe Hispânico, África, Península Ibérica e outros países.
+                        </p><br>
+                        
+                        <h3>Quais são os benefícios do leite materno?</h3>
+                        
+                        <img src="imagens/bebe2.png" class="img-bebe2" alt="bebe2">
+                        <p>A doação de leite humano passa pelo processo de coleta, processamento e distribuição do leite humano para bebês prematuros internados de 
+                            baixo peso (menos de 2,5 kg) e com patologias, principalmente do trato gastrointestinal, e que não podem ser alimentados diretamente pelas 
+                            próprias mães. As evidências científicas indicam que bebês prematuros e/ou com patologias que se alimentam de leite humano no período de 
+                            privação da amamentação possuem mais chances de recuperação e de terem uma vida mais saudável. Com o leite materno, o bebê prematuro ganha 
+                            peso mais rápido, se desenvolve com mais saúde e fica protegido de infecções.</p>
+                            
+                        <p>Todo o leite doado é analisado, pasteurizado e submetido a um rigoroso controle de qualidade antes de ser ofertado a uma criança, conforme 
+                            rege a legislação que regulamenta o funcionamento dos bancos de leite humano no Brasil, a RDC Nº 171. Após análises das suas características, 
+                            o leite é distribuído de acordo com as necessidades específicas de cada recém-nascido internado.                            
+                            O modelo brasileiro para Bancos de Leite Humano (BLH) é referência internacional e, desde 2005, o país exporta técnicas de baixo custo para 
+                            implementar BLHs na América Latina, Caribe Hispânico, África, Península Ibérica e outros países. 
+                        </p><br>
+
+                        <h3>Quem pode doar leite materno?</h3>
+                        <p>
+                        Toda mulher que amamenta é uma possível doadora de leite humano. Para doar, basta ser saudável e não tomar nenhum medicamento que interfira na amamentação.
+                        Se este for o seu caso, entre em contato com o banco de leite mais próximo de sua casa ou ligue ao 136 para obter maiores informações de como e quando doar.
+                        Os bancos de leite humano têm entre seus objetivos a promoção, proteção e apoio ao aleitamento materno. Neste sentido, desenvolvem trabalho para auxiliar as 
+                        mulheres-mães no período da amamentação, tendo profissionais qualificados para também orientar sobre a saúde da criança.
                         </p>
                     </article>
+
                 </section>
                 <section class="content-section">
-                    <article id="duvidas">
+                    <!--<article id="duvidas">
                     <header>
                             <h2>
                                 Dúvidas
@@ -87,7 +124,7 @@
                             text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, 
                             sometimes by accident, sometimes on purpose (injected humour and the like).
                         </p>
-                    </article>
+                    </article>-->
                             
                 </section>
                 <section class="content-section">
@@ -97,13 +134,42 @@
                                 Parceiros
                             </h2>
                         </header>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point 
-                            of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', 
-                            making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model 
-                            text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, 
-                            sometimes by accident, sometimes on purpose (injected humour and the like).
-                        </p>
+                            <p>O Brasil possui a maior e mais complexa Rede de Bancos de Leite Humano (rBLH) do mundo, segundo a Organização Mundial da Saúde (OMS), e é modelo para a 
+                                cooperação internacional em mais de 20 países das Américas, Europa e África, estabelecida por meio da Agência Brasileira de Cooperação (ABC).O Ministério 
+                                da Saúde e a Fundação Oswaldo Cruz criaram a Rede Brasileira de Bancos de Leite Humano (rBLH-BR) em 1998 com a missão de promover, proteger e apoiar o aleitamento 
+                                materno, coletar e distribuir leite humano com qualidade certificada e contribuir para a diminuição da mortalidade infantil. Parte da Política Nacional de 
+                                Aleitamento Materno, a rBLH é uma ação estratégica. Além de coletar, processar e distribuir leite humano a bebês prematuros e de baixo peso, os Bancos de 
+                                Leite Humano (BLHs) realizam atendimento de orientação e apoio à amamentação. Atualmente, a Rede possui mais de 225 Bancos de Leite Humano distribuídos em 
+                                todos os estados do território nacional, alguns com coleta domiciliar.  A rBLH-BR conta ainda com mais de 212 Postos de Coleta (PCs) de leite humano. Todos os 
+                                estados e o Distrito Federal têm pelo menos 1 banco de leite, o que dá uma média de 45 bancos de leite por região do país. O modelo brasileiro alinha baixo 
+                                custo e alta tecnologia. A tecnologia da Rede Brasileira de Banco de Leite Humano - RBLH é exportada para 22 países da América Latina, Caribe, Península Ibérica 
+                                e alguns países da Europa. RBLH: promoção, proteção e apoio ao aleitamento materno até os dois anos de vida, sendo de forma exclusiva até os seis meses de idade
+                                O modelo brasileiro é reconhecido mundialmente pelo desenvolvimento tecnológico inédito, que alia baixo custo à alta qualidade, além de distribuir o leite humano 
+                                conforme as necessidades específicas de cada bebê, aumentando a eficácia da iniciativa para a redução da mortalidade neonatal.
+                            </p>
                     </article>
+                    <section class="content-section-cards1">
+                        <div class="card1 card1-1">
+                            <img src="imagens/norte.png" alt="">
+                            <p><a href="#" class="ame-cards1">Norte</a></p>
+                        </div>
+                        <div class="card1 card1-2">
+                            <img src="imagens/nordeste.png" alt="">
+                            <p><a href="#" class="ame-cards1">Nordeste</a></p>
+                        </div>
+                        <div class="card1 card1-3">
+                            <img src="imagens/centrooeste.png" alt="">
+                            <p><a href="#" class="ame-cards1">Centro-Oeste</a></p>
+                        </div>
+                        <div class="card1 card1-4">
+                            <img src="imagens/sudeste.png" alt="">
+                            <p><a href="#" class="ame-cards1">Sudeste</a></p>
+                        </div>
+                        <div class="card1 card1-5">
+                            <img src="imagens/sul.png" alt="">
+                            <p><a href="#" class="ame-cards1">Sul</a></p>
+                        </div>
+                    </section> 
                 </section>
                 <section class="content-section">
                     <article id="comodoar">
