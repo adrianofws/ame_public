@@ -24,7 +24,7 @@
                         <li><a class="doe" href="#">Doe vida</a></li>
                         <li><a class="cadastro" href="#">Cadastro</a></li>
                         <li><a class="parceiros" href="#parceiros">Parceiros</a></li>
-                        <li><a class="contato" href="contato/contato.html">Contato</a></li>
+                        <li><a class="contato" href="contato/contato.php">Contato</a></li>
                     </ul>
                 </nav>
                 
