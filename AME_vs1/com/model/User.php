@@ -2,37 +2,12 @@
 
 class User {
 
-    protected $cpf;
     protected $nome;
-    protected $endereco1;
-    protected $endereco2;
-    protected $bairro;
-    protected $cidade;
-    protected $estado;
-    protected $cep;
+    protected $sobrenome;
+    protected $identidade;
+    protected $cpf;
     protected $dataDeNascimento;
-    protected $idade;
-    protected $sexo;
-
-    /**
-     * Get the value of cpf
-     */ 
-    public function getCpf()
-    {
-        return $this->cpf;
-    }
-
-    /**
-     * Set the value of cpf
-     *
-     * @return  self
-     */ 
-    public function setCpf($cpf)
-    {
-        $this->cpf = $cpf;
-
-        return $this;
-    }
+    protected $endereco;
 
     /**
      * Get the value of nome
@@ -55,141 +30,61 @@ class User {
     }
 
     /**
-     * Get the value of bairro
+     * Get the value of sobrenome
      */ 
-    public function getBairro()
+    public function getSobrenome()
     {
-        return $this->bairro;
+        return $this->sobrenome;
     }
 
     /**
-     * Set the value of bairro
+     * Set the value of sobrenome
      *
      * @return  self
      */ 
-    public function setBairro($bairro)
+    public function setSobrenome($sobrenome)
     {
-        $this->bairro = $bairro;
+        $this->sobrenome = $sobrenome;
 
         return $this;
     }
 
     /**
-     * Get the value of cidade
+     * Get the value of identidade
      */ 
-    public function getCidade()
+    public function getIdentidade()
     {
-        return $this->cidade;
+        return $this->identidade;
     }
 
     /**
-     * Set the value of cidade
+     * Set the value of identidade
      *
      * @return  self
      */ 
-    public function setCidade($cidade)
+    public function setIdentidade($identidade)
     {
-        $this->cidade = $cidade;
+        $this->identidade = $identidade;
 
         return $this;
     }
 
     /**
-     * Get the value of estado
+     * Get the value of cpf
      */ 
-    public function getEstado()
+    public function getCpf()
     {
-        return $this->estado;
+        return $this->cpf;
     }
 
     /**
-     * Set the value of estado
+     * Set the value of cpf
      *
      * @return  self
      */ 
-    public function setEstado($estado)
+    public function setCpf($cpf)
     {
-        $this->estado = $estado;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of cep
-     */ 
-    public function getCep()
-    {
-        return $this->cep;
-    }
-
-    /**
-     * Set the value of cep
-     *
-     * @return  self
-     */ 
-    public function setCep($cep)
-    {
-        $this->cep = $cep;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of idade
-     */ 
-    public function getIdade()
-    {
-        return $this->idade;
-    }
-
-    /**
-     * Set the value of idade
-     *
-     * @return  self
-     */ 
-    public function setIdade($idade)
-    {
-        $this->idade = $idade;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of endereco1
-     */ 
-    public function getEndereco1()
-    {
-        return $this->endereco1;
-    }
-
-    /**
-     * Set the value of endereco1
-     *
-     * @return  self
-     */ 
-    public function setEndereco1($endereco1)
-    {
-        $this->endereco1 = $endereco1;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of endereco2
-     */ 
-    public function getEndereco2()
-    {
-        return $this->endereco2;
-    }
-
-    /**
-     * Set the value of endereco2
-     *
-     * @return  self
-     */ 
-    public function setEndereco2($endereco2)
-    {
-        $this->endereco2 = $endereco2;
+        $this->cpf = $cpf;
 
         return $this;
     }
@@ -210,6 +105,26 @@ class User {
     public function setDataDeNascimento($dataDeNascimento)
     {
         $this->dataDeNascimento = $dataDeNascimento;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of endereco
+     */ 
+    public function getEndereco()
+    {
+        return $this->endereco;
+    }
+
+    /**
+     * Set the value of endereco
+     *
+     * @return  self
+     */ 
+    public function setEndereco($endereco)
+    {
+        $this->endereco = $endereco;
 
         return $this;
     }

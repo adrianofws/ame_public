@@ -33,10 +33,10 @@
             <input id="sobrenome" type="text" placeholder="Digite seu Sobrenome" name="sobrenome" required>
 
             <label for="identidade"><b>Identidade</b></label>
-            <input id="identidade" type="text" placeholder="Digite seu RG" name="identidade" required>
+            <input id="identidade" type="number" placeholder="Digite seu RG" name="identidade" required>
 
             <label for="cpf"><b>CPF</b></label>
-            <input id="cpf" type="text" placeholder="Digite seu CPF" name="cpf" required>
+            <input id="cpf" type="number" placeholder="Digite seu CPF" name="cpf" required>
 
             <label for="datanasc"><b>Data de nascimento</b></label>
             <input id="datanasc" type="text" placeholder="Digite a data do seu nascimento" name="datanasc" required>

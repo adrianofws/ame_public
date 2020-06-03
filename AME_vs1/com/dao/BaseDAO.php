@@ -8,7 +8,7 @@ class BaseDAO {
         "root" => "localhost:1522/XE"
     ];
 
-    public function getListCast() {
+    protected function getListCast() {
 
         $connection = oci_connect($this->config['user'], $this->config['password'], $this->config['root']);
 
@@ -20,6 +20,29 @@ class BaseDAO {
                 // echo oci_result($query, 'CPF') . " | ";
                 var_dump($query);
             }
+
+    }
+
+    protected function insert($sql, $parameters) {
+
+        foreach ($parameters as $key => $value) {
+            echo "{$key} => {$value} ";
+        }
+
+        // $conn = new mysqli('localhost','root','','ame');
+
+        // if ($conn -> connect_errno) {
+        //     echo "Failed to connect to MySQL: " . $conn -> connect_error;
+        //     exit();
+        // }
+
+        // if ($result = $conn -> query($sql)) {
+        //     echo "Returned rows are: " . $result -> num_rows;
+        //     // Free result set
+        //     $result -> free_result();
+        // }
+        
+        // $conn -> close();
 
     }
 
