@@ -150,23 +150,23 @@
                     </article>
                     <section class="content-section-cards1">
                         <div class="card1 card1-1">
-                            <img src="imagens/norte.png" alt="">
+                            <img src="imagens/norte." alt="">
                             <p><a href="#" class="ame-cards1">Norte</a></p>
                         </div>
                         <div class="card1 card1-2">
-                            <img src="imagens/nordeste.png" alt="">
+                            <img src="imagens/nordeste." alt="">
                             <p><a href="#" class="ame-cards1">Nordeste</a></p>
                         </div>
                         <div class="card1 card1-3">
-                            <img src="imagens/centrooeste.png" alt="">
+                            <img src="imagens/centrooeste." alt="">
                             <p><a href="#" class="ame-cards1">Centro-Oeste</a></p>
                         </div>
                         <div class="card1 card1-4">
-                            <img src="imagens/sudeste.png" alt="">
+                            <img src="imagens/sudeste." alt="">
                             <p><a href="#" class="ame-cards1">Sudeste</a></p>
                         </div>
                         <div class="card1 card1-5">
-                            <img src="imagens/sul.png" alt="">
+                            <img src="imagens/sul." alt="">
                             <p><a href="#" class="ame-cards1">Sul</a></p>
                         </div>
                     </section> 
