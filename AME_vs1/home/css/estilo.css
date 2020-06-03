@@ -227,6 +227,8 @@ footer{
     line-height: 40px;
     background-color: #3c87ed;
     color: white;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 #mito{
     text-transform: uppercase;
