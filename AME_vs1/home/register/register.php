@@ -68,8 +68,11 @@
 
                 let data = new FormData();
 
-                data.append("cpf", $("#cpf").val());
                 data.append("nome", $("#nome").val());
+                data.append("sobrenome", $("#sobrenome").val());
+                data.append("identidade", $("#identidade").val());
+                data.append("cpf", $("#cpf").val());
+                data.append("datanasc", $("#datanasc").val());
                 data.append("endereco", $("#endereco").val());
 
                 $.ajax({
