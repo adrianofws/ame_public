@@ -70,9 +70,12 @@
 
                 let data = new FormData();
 
-                data.append("cpf", "12312399");
-                data.append("nome", "Gabriel");
-                data.append("endereco", "Endereco Teste");
+                data.append("nome", $('#nome').val());
+                data.append("sobrenome", $('#sobrenome').val());
+                data.append("identidade", $('#identidade').val());
+                data.append("cpf", $('#cpf').val());
+                data.append("datanasc", $('#datanasc').val());
+                data.append("endereco", $('#endereco').val());
 
                 $.ajax({
                     url: "./control/function/insertUser.php",
