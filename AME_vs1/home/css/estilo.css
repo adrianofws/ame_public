@@ -21,6 +21,8 @@ body{
     text-align: left;
     color: white;
     padding-left: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 .hero-content h1{
     text-transform: uppercase;
@@ -225,6 +227,8 @@ footer{
     line-height: 40px;
     background-color: #3c87ed;
     color: white;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 #mito{
     text-transform: uppercase;
