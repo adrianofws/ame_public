@@ -208,8 +208,10 @@ main{
     letter-spacing: 2px;
     border-radius: 0px 0px 5px 5px;
 }
-.card1-1, .card1-2, .card1-3, .card1-4{
+.card1-1, .card1-2, .card1-3, .card1-4, .card1-5{
     margin-right: 2%;
+    
+    
 }
 h2{
     background-color:rgb(77, 75, 75);
