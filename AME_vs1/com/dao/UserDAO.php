@@ -7,26 +7,27 @@ class UserDAO extends BaseDAO {
     
     public function insertUser(User $user) {
 
-        var_dump("chamou insert");
+        $sql = 'INSERT INTO usuarios (
+                    nome, 
+                    sobrenome, 
+                    identidade,
+                    cpf,
+                    data_de_nascimento,
+                    endereco) VALUES (:nome, 
+                                      :sobrenome, 
+                                      :identidade, 
+                                      :cpf, 
+                                      :data_de_nascimento, 
+                                      :endereco)';
 
-        $result = null;
-
-        $sql = 'INSERT INTO USUARIOS (
-                NOME, 
-                SOBRENOME, 
-                IDENTIDADE,
-                CPF,
-                DATA_DE_NASCIMENTO,
-                ENDERECO) VALUES ()';
-
-        $parameters = [
-            'nome' => $user->getNome(),
-            'sobrenome' => $user->getSobrenome(),
-            'identidade' => $user->getIdentidade(),
-            'cpf' => $user->getCpf(),
-            'data_de_nascimento' => $user->getDataDeNascimento(),
-            'endereco' => $user->getEndereco()
-        ];
+        $parameters = array(
+            ':nome' => $user->getNome(),
+            ':sobrenome' => $user->getSobrenome(),
+            ':identidade' => $user->getIdentidade(),
+            ':cpf' => $user->getCpf(),
+            ':data_de_nascimento' => $user->getDataDeNascimento(),
+            ':endereco' => $user->getEndereco()
+        );
 
         parent::insert($sql, $parameters);
 

@@ -60,11 +60,7 @@
 
         $(document).ready(function() {
 
-            console.log("CHAMOU");
-
             $("#registerbtn").click(function(event) {
-
-                console.log("chamou funcao");
 
                 event.preventDefault();
 
@@ -85,13 +81,9 @@
                     processData: false,
                     contentType: false
                 }).done(function(result) {
-                    console.log(result);
-
+                    console.log("done!");
                 }).fail(function(jqXHR, textStatus ) {
                     console.log("Request failed: " + textStatus);
-
-                }).always(function() {
-                    console.log("completou");
                 });
 
             });
