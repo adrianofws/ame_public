@@ -9,8 +9,10 @@
 
     <body>
     <header class="register_header">
-        <img class="logotipo" src="imagens/logo_ame.jpg" alt="Logotipo ame">
-    </header>
+            <img class="logotipo" src="imagens/logo_ame.jpg" alt="Logotipo ame">
+        </header>
+
+        <form action="/action_page.php">
             
         <div class="container">
             <h1>Cadastre-se e ajude a salvar vidas!</h1>
@@ -60,18 +62,15 @@
 
         $(document).ready(function() {
 
-            $("#registerbtn").click(function(event) {
+            $(".registerbtn").click(function(event) {
 
                 event.preventDefault();
 
                 let data = new FormData();
 
-                data.append("nome", $('#nome').val());
-                data.append("sobrenome", $('#sobrenome').val());
-                data.append("identidade", $('#identidade').val());
-                data.append("cpf", $('#cpf').val());
-                data.append("datanasc", $('#datanasc').val());
-                data.append("endereco", $('#endereco').val());
+                data.append("cpf", $("#cpf").val());
+                data.append("nome", $("#nome").val());
+                data.append("endereco", $("#endereco").val());
 
                 $.ajax({
                     url: "./control/function/insertUser.php",
@@ -81,9 +80,13 @@
                     processData: false,
                     contentType: false
                 }).done(function(result) {
-                    console.log("done!");
+                    console.log(result);
+
                 }).fail(function(jqXHR, textStatus ) {
                     console.log("Request failed: " + textStatus);
+
+                }).always(function() {
+                    console.log("completou");
                 });
 
             });
