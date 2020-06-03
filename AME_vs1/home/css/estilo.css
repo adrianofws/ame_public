@@ -164,11 +164,16 @@ main{
     text-decoration: none;
     font-size: 20px;
 }
+.content-section-cards a:hover{
+    color: rgba(236, 0, 138, 0.712);
+}
 .content-section-cards1 a.ame-cards1{
     color: white;
     text-decoration: none;
     font-size: 20px;
-    
+}
+.content-section-cards1 a:hover{
+    color: rgba(236, 0, 138, 0.712);
 }
 .card{
     float: left;
@@ -210,8 +215,6 @@ main{
 }
 .card1-1, .card1-2, .card1-3, .card1-4, .card1-5{
     margin-right: 2%;
-    
-    
 }
 h2{
     background-color:rgb(77, 75, 75);
