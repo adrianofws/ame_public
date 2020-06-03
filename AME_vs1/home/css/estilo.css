@@ -30,7 +30,7 @@ body{
     text-shadow: 3px 3px 5px #333;
     text-align: left;
     display: block;
-    padding-top: 750px;
+    padding-top: 640px;
     padding-left: 8px;
 }
 #social-media-div{
@@ -66,13 +66,13 @@ body{
 .hero nav li a.conheca:hover{
     background: rgba(152,210,173,0.5);
 }
-.hero nav li a.duvidas{
+/*.hero nav li a.duvidas{
     background-color: #f6801e;
     border-radius: 4px;
 }
 .hero nav li a.duvidas:hover{
     background: rgba(246,128,30,0.5);
-}
+}*/
 .hero nav li a.doe{
     background-color: #53c5cf;
     border-radius: 4px;
@@ -126,12 +126,26 @@ body{
     margin: 0px auto; 
     
 }
+.img-bebe1 {
+    float: left;
+}
+.img-bebe2 {
+    float: right;
+}
 main{
     width: 80%;
     margin: auto;
     
 }
 .content-section-cards{
+    background-color: white;
+    padding: 15px;
+    margin-top: 15px;
+    overflow: auto;
+    line-height: 1.5;
+    
+}
+.content-section-cards1{
     background-color: white;
     padding: 15px;
     margin-top: 15px;
@@ -149,6 +163,12 @@ main{
     color: white;
     text-decoration: none;
     font-size: 20px;
+}
+.content-section-cards1 a.ame-cards1{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    
 }
 .card{
     float: left;
@@ -168,6 +188,27 @@ main{
     border-radius: 0px 0px 5px 5px;
 }
 .card-1, .card-2{
+    margin-right: 2%;
+}
+
+.card1{
+    float: left;
+    width: 18%;   
+}
+.card1 img{
+    width: 100%;
+    display: block;
+    border-radius: 5px 5px 0px 0px;
+}
+.card1 p{
+    background-color: rgb(77, 75, 75);
+    color:white;
+    padding: 15px;
+    margin: 0;
+    letter-spacing: 2px;
+    border-radius: 0px 0px 5px 5px;
+}
+.card1-1, .card1-2, .card1-3, .card1-4{
     margin-right: 2%;
 }
 h2{
