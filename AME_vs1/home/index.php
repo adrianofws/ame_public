@@ -312,7 +312,7 @@
                                 ambiente e nem esquentá-lo no fogão ou microondas
                              </p>
                              <h3>O tempo de amamentação depende de cada criança.</h3>
-                             <p><strong id="verdade">VERDADE</strong>. Alguns bebês são rápidos e levam de 5 a 10 minutos para  mamar. Outros, não têm pressa e levam até 40 minutos. A mãe deve continuar amamentando até o bebê perder o interesse, 
+                             <p><strong id="verdade">VERDADE</strong>. Alguns bebês são rápidos e levam de 5 a 10 minutos para mamar. Outros, não têm pressa e levam até 40 minutos. A mãe deve continuar amamentando até o bebê perder o interesse, 
                                 pois é ele quem vai determinar o tempo suficiente. A mãe deve buscar a melhor posição, seja sentada, em pé, deitada, e oferecer o seio à criança. Deve promover uma boa ‘pega’, com a 
                                 criança abocanhando a maior parte possível da aréola, para evitar fissuras
 
