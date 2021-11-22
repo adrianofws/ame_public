@@ -1,6 +1,6 @@
 <?php
 
-class ReceptorEmpresa {
+class ReceptorEmpresa implements JsonSerializable {
 
 	private $limpaObjetos = false;
 

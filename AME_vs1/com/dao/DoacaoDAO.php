@@ -43,23 +43,36 @@ class DoacaoDAO extends BaseDAO {
 
     public function getDoacoes()
 	{
-		return parent::getListNoCast("select
-                                        UD.NM_NOME DOADOR,
-                                        UR.NM_NOME RECEPTOR,
-                                        E.NM_NOME EMPRESA,
-                                        RE.DS_MOTIVO_DOACAO
-                                    from
-                                        doacao d,
-                                        empresa e,
-                                        usuario ud,
-                                        usuario ur,
-                                        receptor_empresa re
-                                    where 1=1
-                                        and D.ID_DOADOR = UD.ID_USUARIO
-                                        and D.ID_RECEPTOR = UR.ID_USUARIO
-                                        and D.ID_EMPRESA = E.ID_EMPRESA
-                                        and E.ID_EMPRESA = RE.ID_EMPRESA
-                                        and UR.ID_USUARIO = RE.ID_RECEPTOR");
+		return parent::getListCast("SELECT * FROM doacao");
+	}
+
+    public function getDoacoesWhere($where)
+	{
+        
+        $sql = "select
+                    UR.ID_USUARIO ID_RECEPTOR,
+                    UR.NM_NOME RECEPTOR,
+                    E.NM_NOME EMPRESA,
+                    RE.DS_MOTIVO_DOACAO
+                from
+                    doacao d,
+                    empresa e,
+                    usuario ur,
+                    receptor_empresa re,
+                    estado es,
+                    bairro b ,
+                    cidade c 
+                where 1=1
+                    and D.ID_RECEPTOR = UR.ID_USUARIO
+                    and D.ID_EMPRESA = E.ID_EMPRESA
+                    and E.ID_EMPRESA = RE.ID_EMPRESA
+                    and UR.ID_USUARIO = RE.ID_RECEPTOR
+                    and e.id_federacao = es.id_estado
+                    and e.ID_BAIRRO = b.ID_BAIRRO 
+                    and e.ID_CIDADE = c.ID_CIDADE
+                    $where";
+		
+        return parent::getListNoCast($sql);
 	}
 
     protected function processRow($result) {

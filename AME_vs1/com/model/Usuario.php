@@ -1,6 +1,6 @@
 <?php
 
-class Usuario {
+class Usuario implements JsonSerializable {
 
 	private $limpaObjetos = false;
 
@@ -32,7 +32,7 @@ class Usuario {
 
 		if (is_array($result)) {
 			$this->idUsuario = $result['ID_USUARIO'];
-			$this->nmUsuario = $result['NM_USUARIO'];
+			$this->nmUsuario = $result['NM_NOME'];
 			$this->nmSobrenome = $result['NM_SOBRENOME'];
 			$this->dtNascimento = $result['DT_NASCIMENTO'];
 			$this->nrCpf = $result['NR_CPF'];

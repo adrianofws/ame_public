@@ -1,8 +1,6 @@
 <?php
 
-class Estado {
-
-	private $limpaObjetos = false;
+class Estado implements JsonSerializable {
 
     protected $idEstado;
     protected $nmEstado;
@@ -11,7 +9,7 @@ class Estado {
 	{
 		return [
 			"idEstado" => (string) $this->idEstado,
-			"nmEstado" => (string) $this->nmBairro
+			"nmEstado" => (string) $this->nmEstado
 		];
 	}
 

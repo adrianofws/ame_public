@@ -51,6 +51,16 @@ class EmpresaDAO extends BaseDAO {
 
     }
 
+    public function getEmpresa($idEmpresa)
+	{
+		return parent::getListCastParam("SELECT * FROM empresa WHERE id_empresa = :id_empresa", array(':id_empresa' => $idEmpresa));
+	}
+
+    public function getEmpresas()
+	{
+		return parent::getListCast("SELECT * FROM empresa");
+	}
+
     protected function processRow($result) {
 
 		$empresa = new Empresa($result,$this->limpaObjetos);

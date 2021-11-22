@@ -1,9 +1,9 @@
 <?php
 
-include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/model/ReceptorEmpresa.php');
+include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/model/Estado.php');
 include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/dao/BaseDAO.php');
 
-class ReceptorEmpresaDAO extends BaseDAO {
+class EstadoDAO extends BaseDAO {
 
     private $limpaObjetos = false;
 
@@ -11,30 +11,32 @@ class ReceptorEmpresaDAO extends BaseDAO {
 		$this->limpaObjetos = $limpaObjetos;
 	}
     
-    public function insertReceptorEmpresa(ReceptorEmpresa $receptorEmpresa) {
+    public function insertEstado(Estado $estado) {
 
-        $sql = 'INSERT INTO receptor_empresa (
-                    idEmpresa, 
-                    idReceptor, 
-                    dsMotivoDoacao) VALUES (:id_empresa, 
-                                      :id_receptor, 
-                                      :ds_motivo_doacao)';
+        $sql = 'INSERT INTO estado (
+                    id_estado, 
+                    nm_estado) VALUES (:id_estado, 
+                                      :nm_estado)';
 
         $parameters = array(
-            ':id_empresa' => $receptorEmpresa->getIdEmpresa(),
-            ':id_receptor' => $receptorEmpresa->getIdReceptor(),
-            ':ds_motivo_doacao' => $receptorEmpresa->getDsMotivoDoacao(),
+            ':id_estado' => $estado->getIdEstado(),
+            ':nm_estado' => $estado->getNmEstado()
         );
 
         parent::insert($sql, $parameters);
 
     }
 
+    public function getEstado($idEstado)
+	{
+		return parent::getListCastParam("SELECT * FROM estado WHERE id_estado = :id_estado", array(':id_estado' => $idEstado));
+	}
+
     protected function processRow($result) {
 
-		$receptorEmpresa = new ReceptorEmpresa($result,$this->limpaObjetos);
+		$estado = new Estado($result,$this->limpaObjetos);
 		
-        return $receptorEmpresa;
+        return $estado;
 	
     }
 

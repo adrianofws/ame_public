@@ -1,8 +1,6 @@
 <?php
 
-class Cidade {
-
-	private $limpaObjetos = false;
+class Cidade implements JsonSerializable {
 
     protected $idCidade;
     protected $nmCidade;

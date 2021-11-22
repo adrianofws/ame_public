@@ -10,7 +10,7 @@ class UsuarioDAO extends BaseDAO {
 	public function __construct($limpaObjetos = false) {
 		$this->limpaObjetos = $limpaObjetos;
 	}
-    
+
     public function insertUser(Usuario $usuario) {
 
         $sql = 'INSERT INTO usuario (
@@ -38,6 +38,11 @@ class UsuarioDAO extends BaseDAO {
         parent::insert($sql, $parameters);
 
     }
+
+    public function getUsuario($idUsuario)
+	{
+		return parent::getListCastParam("SELECT * FROM usuario WHERE id_usuario = :id_usuario", array(':id_usuario' => $idUsuario));
+	}
 
     protected function processRow($result) {
 

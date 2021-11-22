@@ -1,8 +1,6 @@
 <?php
 
-class Bairro {
-
-	private $limpaObjetos = false;
+class Bairro implements JsonSerializable {
 
     protected $idBairro;
     protected $nmBairro;
