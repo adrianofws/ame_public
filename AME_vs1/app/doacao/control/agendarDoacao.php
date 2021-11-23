@@ -10,7 +10,7 @@ $idReceptor = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "idReceptor"), FILTER_SAN
 
 $usuario = new Usuario();
 
-$usuario->setIdUsuario(3);
+$usuario->setIdUsuario($idReceptor);
 
 $result = (new DoacaoDAO())->getModalAgendaDoacao($usuario);
 

@@ -10,7 +10,6 @@ $nmBairro = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nmBairro"), FILTER_SANITIZ
 $nmEmpresa = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nmEmpresa"), FILTER_SANITIZE_STRING));
 $nmReceptor = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nmReceptor"), FILTER_SANITIZE_STRING));
 
-//Variaveis para busca
 $where = "";
 
 if ($nmEstado !== "")
