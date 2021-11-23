@@ -6,10 +6,6 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
 include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/model/Empresa.php');
 include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/dao/EstadoDAO.php');
 
-// $array = (new UsuarioDAO())->getUsuario(1);
-
-// echo $array[0]->getNmUsuario();
-
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +22,7 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 
-    function f1 () {
+    function pesquisarReceptores () {
 
         let data = new FormData();
 
@@ -37,14 +33,15 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
         data.append("nmReceptor", "Junior");
 
         $.ajax({
-            url: "./control/pesquisaDoacao.php",
+            url: "./control/pesquisarReceptores.php",
             type: "POST",
             dataType: "json",
             data: data,
             processData: false,
             contentType: false
         }).done(function(result) {
-            console.log("Resultado: " + result);
+            let resultado = result.RESULT;
+            console.log("Resultado: ", resultado[0]);
         }).fail(function(jqXHR, textStatus ) {
             console.log("Request failed: " + textStatus);
 
@@ -54,10 +51,10 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
     
     }
 
-    function f2 () {
+    function pesquisarDoacao () {
 
         $.ajax({
-            url: "./control/pesquisaDoacao.php",
+            url: "./control/pesquisarDoacao.php",
             type: "POST",
             dataType: "json",
             processData: false,
@@ -76,7 +73,60 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
 
     }
 
-    f2();
+    function agendarDoacao () {
+
+        let data = new FormData();
+
+        data.append("idReceptor", 3);
+
+        $.ajax({
+            url: "./control/agendarDoacao.php",
+            type: "POST",
+            dataType: "json",
+            data: data,
+            processData: false,
+            contentType: false
+        }).done(function(result) {
+            let resultado = result.RESULT;
+            console.log("Resultado: ", resultado[0]);
+        }).fail(function(jqXHR, textStatus ) {
+            console.log("Request failed: " + textStatus);
+
+        }).always(function() {
+            console.log("completou");
+        });
+
+    }
+
+    function inserirDoacao () {
+
+        let data = new FormData();
+
+        data.append("idDoador", 1);
+        data.append("idReceptor", 3);
+        data.append("idEmpresa", 4);
+        data.append("dtDoacao", "2021-11-23");
+
+        $.ajax({
+            url: "./control/inserirDoacao.php",
+            type: "POST",
+            dataType: "json",
+            data: data,
+            processData: false,
+            contentType: false
+        }).done(function(result) {
+            let resultado = result.RESULT;
+            console.log("Resultado: ", resultado[0]);
+        }).fail(function(jqXHR, textStatus ) {
+            console.log("Request failed: " + textStatus);
+
+        }).always(function() {
+            console.log("completou");
+        });
+
+    }
+
+    inserirDoacao();
 
 </script>
 </html>

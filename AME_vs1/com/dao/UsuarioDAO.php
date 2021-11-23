@@ -11,15 +11,15 @@ class UsuarioDAO extends BaseDAO {
 		$this->limpaObjetos = $limpaObjetos;
 	}
 
-    public function insertUser(Usuario $usuario) {
+    public function insertUsuario(Usuario $usuario) {
 
         $sql = 'INSERT INTO usuario (
-                    nm_nome, 
+                    nm_usuario, 
                     nm_sobrenome,
                     dt_nascimento,
                     nr_cpf,
                     ds_endereco,
-                    ds_descricao) VALUES (:nm_nome, 
+                    ds_descricao) VALUES (:nm_usuario, 
                                       :nm_sobrenome, 
                                       :dt_nascimento, 
                                       :nr_cpf, 

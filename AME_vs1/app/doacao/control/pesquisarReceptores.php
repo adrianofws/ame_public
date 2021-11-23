@@ -23,11 +23,11 @@ if ($nmBairro !== "")
     $where .= " AND (UPPER(b.nm_bairro) LIKE UPPER('%$nmBairro%')) ";
 
 if ($nmEmpresa !== "")
-    $where .= " AND (UPPER(e.nm_nome) LIKE UPPER('%$nmEmpresa%')) ";
+    $where .= " AND (UPPER(e.nm_empresa) LIKE UPPER('%$nmEmpresa%')) ";
 
 if ($nmReceptor !== "")
-    $where .= " AND (UPPER(ur.nm_nome) LIKE UPPER('%$nmReceptor%')) ";
+    $where .= " AND (UPPER(ur.nm_usuario) LIKE UPPER('%$nmReceptor%')) ";
 
-$result = (new DoacaoDAO())->getDoacoesWhere($where);
+$result = (new DoacaoDAO())->getReceptoresWhere($where);
 
 echo json_encode(['STATUS' => true, 'RESULT' => $result]);

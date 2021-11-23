@@ -2,7 +2,7 @@
 
 include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/model/Doacao.php');
 include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/dao/BaseDAO.php');
-
+include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/model/Usuario.php');
 class DoacaoDAO extends BaseDAO {
 
     private $limpaObjetos = false;
@@ -11,21 +11,18 @@ class DoacaoDAO extends BaseDAO {
 		$this->limpaObjetos = $limpaObjetos;
 	}
     
-    public function insertDoacao(Doacao $doacao) {
+    public function insertUsuario(Doacao $doacao) {
 
-        $sql = 'INSERT INTO doacao (
-                    idDoacao, 
-                    idDoador, 
-                    idReceptor,
-                    idEmpresa,
-                    dtDoacao) VALUES (:id_doacao, 
-                                      :id_doador, 
+        $sql = "INSERT INTO doacao (
+                    id_doador, 
+                    id_receptor,
+                    id_empresa,
+                    dt_doacao) VALUES (:id_doador, 
                                       :id_receptor, 
                                       :id_empresa, 
-                                      :dt_doacao)';
+                                      ':dt_doacao')";
 
         $parameters = array(
-            ':id_doacao' => $doacao->getIdDoacao(),
             ':id_doador' => $doacao->getIdDoador(),
             ':id_receptor' => $doacao->getIdReceptor(),
             ':id_empresa' => $doacao->getIdEmpresa(),
@@ -46,13 +43,13 @@ class DoacaoDAO extends BaseDAO {
 		return parent::getListCast("SELECT * FROM doacao");
 	}
 
-    public function getDoacoesWhere($where)
+    public function getReceptoresWhere($where)
 	{
         
         $sql = "select
                     UR.ID_USUARIO ID_RECEPTOR,
-                    UR.NM_NOME RECEPTOR,
-                    E.NM_NOME EMPRESA,
+                    UR.NM_USUARIO NM_RECEPTOR,
+                    E.NM_EMPRESA,
                     RE.DS_MOTIVO_DOACAO
                 from
                     doacao d,
@@ -73,6 +70,36 @@ class DoacaoDAO extends BaseDAO {
                     $where";
 		
         return parent::getListNoCast($sql);
+	}
+
+    public function getModalAgendaDoacao(Usuario $usuario)
+	{
+        
+        $sql = "select
+                    E.ID_EMPRESA,
+                    UR.ID_USUARIO ID_RECEPTOR,
+                    E.NM_EMPRESA,
+                    E.DS_ENDERECO,
+                    UR.NM_USUARIO,
+                    UR.NR_IDADE,
+                    RE.DS_MOTIVO_DOACAO
+                from
+                    doacao d,
+                    empresa e,
+                    usuario ur,
+                    receptor_empresa re
+                where 1=1
+                    and UR.ID_USUARIO = :id_receptor
+                    and D.ID_RECEPTOR = UR.ID_USUARIO
+                    and D.ID_EMPRESA = E.ID_EMPRESA
+                    and E.ID_EMPRESA = RE.ID_EMPRESA
+                    and UR.ID_USUARIO = RE.ID_RECEPTOR";
+
+        $parameters = array(
+            ':id_receptor' => $usuario->getIdUsuario()
+        );
+		
+        return parent::getListNoCastParam($sql, $parameters);
 	}
 
     protected function processRow($result) {

@@ -53,7 +53,7 @@ class Empresa implements JsonSerializable {
 			$this->idFederacao = $result['ID_FEDERACAO'];
 			$this->idCidade = $result['ID_CIDADE'];
 			$this->idBairro = $result['ID_BAIRRO'];
-			$this->nmEmpresa = $result['NM_NOME'];
+			$this->nmEmpresa = $result['NM_EMPRESA'];
 			$this->nrNumero = $result['NR_NUMERO'];
 			$this->nrCnpj = $result['NR_CNPJ'];
 			$this->nrCep = $result['NR_CEP'];

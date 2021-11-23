@@ -128,10 +128,6 @@ class Doacao implements JsonSerializable {
         $this->dtDoacao = $dtDoacao;
     }
 
-
-
-    
-
 }
 
 ?>

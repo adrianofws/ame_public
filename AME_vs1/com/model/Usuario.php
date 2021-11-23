@@ -32,7 +32,7 @@ class Usuario implements JsonSerializable {
 
 		if (is_array($result)) {
 			$this->idUsuario = $result['ID_USUARIO'];
-			$this->nmUsuario = $result['NM_NOME'];
+			$this->nmUsuario = $result['NM_USUARIO'];
 			$this->nmSobrenome = $result['NM_SOBRENOME'];
 			$this->dtNascimento = $result['DT_NASCIMENTO'];
 			$this->nrCpf = $result['NR_CPF'];
