@@ -26,7 +26,7 @@ class DoacaoDAO extends BaseDAO {
             ':id_doador' => $doacao->getIdDoador(),
             ':id_receptor' => $doacao->getIdReceptor(),
             ':id_empresa' => $doacao->getIdEmpresa(),
-            ':dt_doacao' => $doacao->getDtDoacao(),
+            ':dt_doacao' => $doacao->getDtDoacao()
         );
 
         parent::insert($sql, $parameters);
