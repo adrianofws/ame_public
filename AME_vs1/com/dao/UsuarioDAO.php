@@ -19,11 +19,13 @@ class UsuarioDAO extends BaseDAO {
                     dt_nascimento,
                     nr_cpf,
                     ds_endereco,
+                    ds_senha,
                     ds_descricao) VALUES (:nm_usuario, 
                                       :nm_sobrenome, 
                                       :dt_nascimento, 
                                       :nr_cpf, 
                                       :ds_endereco, 
+                                      :ds_senha,
                                       :ds_descricao)';
 
         $parameters = array(
@@ -32,6 +34,7 @@ class UsuarioDAO extends BaseDAO {
             ':dt_nascimento' => $usuario->getDtNascimento(),
             ':nr_cpf' => $usuario->getNrCpf(),
             ':ds_endereco' => $usuario->getDsEndereco(),
+            ':ds_senha' => $usuario->getDsSenha(),
             ':ds_descricao' => $usuario->getDsDescricao()
         );
 
@@ -43,6 +46,23 @@ class UsuarioDAO extends BaseDAO {
 	{
 		return parent::getListCastParam("SELECT * FROM usuario WHERE id_usuario = :id_usuario", array(':id_usuario' => $idUsuario));
 	}
+
+    public function login(Usuario $usuario) {
+
+        $sql = "SELECT 
+                    * 
+                FROM 
+                    usuario u 
+                WHERE 1=1 
+                    AND u.NR_CPF = :nr_cpf 
+                    AND u.DS_SENHA = :ds_senha";
+
+        $parameters = array(':nr_cpf' => $usuario->getNrCpf(), 
+                            ':ds_senha' => $usuario->getDsSenha());
+
+        return parent::getListCastParam($sql, $parameters);
+
+    }
 
     protected function processRow($result) {
 

@@ -10,6 +10,7 @@ class Usuario implements JsonSerializable {
     protected $dtNascimento;
     protected $nrCpf;
     protected $dsEndereco;
+    protected $dsSenha;
     protected $dsDescricao;
 
     public function jsonSerialize()
@@ -21,6 +22,7 @@ class Usuario implements JsonSerializable {
 			"dtNascimento" => (string) $this->dtNascimento,
 			"nrCpf" => (string) $this->nrCpf,
 			"dsEndereco" => (string) $this->dsEndereco,
+			"dsSenha" => (string) $this->dsSenha,
 			"dsDescricao" => (string) $this->dsDescricao
 		];
 	}
@@ -110,6 +112,18 @@ class Usuario implements JsonSerializable {
     public function setDsEndereco($dsEndereco)
     {
         $this->dsEndereco = $dsEndereco;
+
+        return $this;
+    }
+
+    public function getDsSenha()
+    {
+        return $this->dsSenha;
+    }
+
+    public function setDsSenha($dsSenha)
+    {
+        $this->dsSenha = $dsSenha;
 
         return $this;
     }
