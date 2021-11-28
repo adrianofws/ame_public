@@ -14,7 +14,7 @@ class BaseDAO {
         foreach ($parameters as $key => $value) {
 
             if(!((int) $value))
-                $value = "'" . strtoupper($value) . "'";
+                $value = "'" . $value . "'";
 
             $sql = str_replace($key, $value, $sql);
 
@@ -31,13 +31,17 @@ class BaseDAO {
         }
 
         if ($conn -> query($sql)) {
-            echo "Query executada!";
+            
+            $conn -> close();
+            return true;
+        
         } else {
-            echo "Falha na execução da query!";
+        
+            $conn -> close();
+            return false;
+        
         }
         
-        $conn -> close();
-
     }
 
     protected function getListCastParam($sql, $parameters) {
