@@ -18,13 +18,11 @@
                 <img class="logotipo" src="imagens/logo_ame.jpg" alt="Logotipo ame">
                 <nav class="buttons">
                     <ul>
-                        <li><a class="login" href="#">Login</a></li>
-                        <li><a class="conheca" href="#conheca">Conheça</a></li>
-                        <!--<li><a class="duvidas" href="#duvidas">Dúvidas</a></li>-->
                         <li><a class="doe" href="#">Doe vida</a></li>
-                        <li><a class="cadastro" href="#">Cadastro</a></li>
+                        <li><a class="conheca" href="#conheca">Conheça</a></li>
                         <li><a class="parceiros" href="#parceiros">Parceiros</a></li>
                         <li><a class="contato" href="contato/contato.html">Contato</a></li>
+                        <!--<li><a class="duvidas" href="#duvidas">Dúvidas</a></li>-->
                     </ul>
                 </nav>
                 
