@@ -136,6 +136,9 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
             let dtNascimento = $('#dtNascimento');
             dtNascimento.mask('99/99/9999');
 
+            let nrCpf = $('#nrCpf');
+            nrCpf.mask('999.999.999-99');
+
         }
 
         $("#btnCadastrar").click(function(event) {
@@ -161,11 +164,16 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
 
             if(dataValida) {
 
+                let nrCpf = $("#nrCpf").val();
+                nrCpf = nrCpf.replaceAll(".", "").replaceAll("-", "");
+
+                console.log(nrCpf);
+
                 let data = new FormData();
 
                 data.append("nmUsuario", $("#nmUsuario").val());
                 data.append("nmSobrenome", $("#nmSobrenome").val());
-                data.append("nrCpf", $("#nrCpf").val());
+                data.append("nrCpf", nrCpf);
                 data.append("dtNascimento", $("#dtNascimento").val());
                 data.append("dsEndereco", $("#dsEndereco").val());
                 data.append("dsSenha", $("#dsSenha").val());
@@ -187,10 +195,13 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
 
                         if(result.STATUS) {
 
+                            $('#alertaVermelho').hide();
                             $('#alertaVerde').show();
                             location.href = "../login/index.php";
                             
                         } else {
+
+                            $('#alertaVerde').hide();
 
                             $('#msgAlertVermelho').html("Não foi possível efeturar o seu cadastro.");
                             $('#alertaVermelho').show();
