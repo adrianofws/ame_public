@@ -49,6 +49,7 @@ class DoacaoDAO extends BaseDAO {
         $sql = "select
                     UR.ID_USUARIO ID_RECEPTOR,
                     UR.NM_USUARIO NM_RECEPTOR,
+                    E.DS_ENDERECO,
                     E.NM_EMPRESA,
                     RE.DS_MOTIVO_DOACAO
                 from
