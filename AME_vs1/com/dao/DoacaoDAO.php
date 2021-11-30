@@ -81,8 +81,7 @@ class DoacaoDAO extends BaseDAO {
                     E.NM_EMPRESA,
                     E.DS_ENDERECO,
                     UR.NM_USUARIO,
-                    UR.NR_IDADE,
-                    RE.DS_MOTIVO_DOACAO
+                    UR.DS_DESCRICAO
                 from
                     doacao d,
                     empresa e,
