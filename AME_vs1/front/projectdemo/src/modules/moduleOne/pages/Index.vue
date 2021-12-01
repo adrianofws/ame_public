@@ -20,7 +20,7 @@
           <q-input v-model="filters.nmCidade" outlined label="Cidade" />
         </div>
         <div class="col-6 q-px-sm">
-          <q-input v-model="filters.receiver" outlined label="Receptor" />
+          <q-input v-model="filters.nmReceptor" outlined label="Receptor" />
         </div>
       </div>
       <div class="row q-mt-sm">
@@ -60,7 +60,7 @@ export default {
   data() {
     return {
       filters: {
-        nmEstado: null,
+        nmEstado: "",
         nmCidade: "",
         nmBairro: "",
         nmEmpresa: "",
@@ -117,8 +117,8 @@ export default {
     },
 
     setTable() {
+      console.log(this.filters);
       this.ActionGetDonations(this.filters).then((res) => {
-        console.log(res);
         this.data = res;
       });
     },
