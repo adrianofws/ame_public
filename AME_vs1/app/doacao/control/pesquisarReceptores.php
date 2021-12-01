@@ -3,6 +3,8 @@
 include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/dao/DoacaoDAO.php');
 
 header("Content-Type: application/json");
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
 
 $nmEstado = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nmEstado"), FILTER_SANITIZE_STRING));
 $nmCidade = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nmCidade"), FILTER_SANITIZE_STRING));
