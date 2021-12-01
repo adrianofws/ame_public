@@ -3,7 +3,6 @@ export default {
     modal: false,
     data: null
   },
-  // films: [],
   optionsTest: [
     { label: "AC - Acre", value: "ac" },
     { label: "AL - Alagoas", value: "al" },
@@ -32,13 +31,5 @@ export default {
     { label: "SP - São Paulo", value: "sp" },
     { label: "SE - Sergipe", value: "se" },
     { label: "TO - Tocantins", value: "to" }
-  ],
-  donations: [
-    {
-      ID_RECEPTOR: "3",
-      NM_RECEPTOR: "JUNIOR",
-      NM_EMPRESA: "PISOCOLA",
-      DS_MOTIVO_DOACAO: "Motivo da doacao"
-    }
   ]
 };
