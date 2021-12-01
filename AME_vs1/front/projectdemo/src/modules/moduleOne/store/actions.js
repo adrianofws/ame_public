@@ -19,20 +19,17 @@ export const ActionSetStateModal = ({ commit }, payload) => {
 // };
 
 export const ActionGetDonations = ({ dispatch }, payload) => {
-  let { city, company, neighborhood, receiver, selectedState } = payload;
-  console.log("payload", city, company, neighborhood, receiver, selectedState);
-  Http.post("pesquisarDoacao.php")
-    .then(res => {
-      console.log(res);
-      // dispatch("ActionSetDonations", response.data);
-    })
-    .catch(res => {
-      Notify.create("Pesquisa não encontrada!");
-    });
-
-  // Http.post("doacao/control/pesquisarDoacao.php").then(response => {
-  //   console.log(response);
-  // });
+  return new Promise((resolve, reject) => {
+    Http.post("pesquisarReceptores.php")
+      .then(response => {
+        // dispatch("ActionSetDonations", response.data.RESULT);
+        resolve(response.data.RESULT);
+      })
+      .catch(response => {
+        Notify.create("Pesquisa não encontrada!");
+        reject(error);
+      });
+  });
 };
 
 export const ActionSetDonations = ({ commit }, payload) => {
