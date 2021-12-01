@@ -6,18 +6,18 @@
         <div class="col-6 q-px-sm">
           <q-select
             outlined
-            v-model="filters.selectedState"
+            v-model="filters.nmEstado"
             :options="optionsTest"
             label="Estado"
           />
         </div>
         <div class="col-6 q-px-sm">
-          <q-input v-model="filters.company" outlined label="Empresa" />
+          <q-input v-model="filters.nmEmpresa" outlined label="Empresa" />
         </div>
       </div>
       <div class="row q-mt-sm">
         <div class="col-6 q-px-sm">
-          <q-input v-model="filters.city" outlined label="Cidade" />
+          <q-input v-model="filters.nmCidade" outlined label="Cidade" />
         </div>
         <div class="col-6 q-px-sm">
           <q-input v-model="filters.receiver" outlined label="Receptor" />
@@ -25,7 +25,7 @@
       </div>
       <div class="row q-mt-sm">
         <div class="col-6 q-px-sm">
-          <q-input v-model="filters.neighborhood" outlined label="Bairro " />
+          <q-input v-model="filters.nmBairro" outlined label="Bairro " />
         </div>
       </div>
       <q-btn
@@ -60,11 +60,11 @@ export default {
   data() {
     return {
       filters: {
-        selectedState: null,
-        city: "",
-        neighborhood: "",
-        company: "",
-        receiver: "",
+        nmEstado: null,
+        nmCidade: "",
+        nmBairro: "",
+        nmEmpresa: "",
+        nmReceptor: "",
       },
       selected: [],
       columns: [
@@ -117,8 +117,10 @@ export default {
     },
 
     setTable() {
-      this.ActionGetDonations(this.filters);
-      this.data = this.donations;
+      this.ActionGetDonations(this.filters).then((res) => {
+        console.log(res);
+        this.data = res;
+      });
     },
 
     setStateModal() {
