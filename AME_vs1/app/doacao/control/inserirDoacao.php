@@ -3,6 +3,9 @@
 include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/dao/DoacaoDAO.php');
 
 header("Content-Type: application/json");
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Methods: *');
 
 $idDoador = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "idDoador"), FILTER_SANITIZE_STRING));
 $idReceptor = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "idReceptor"), FILTER_SANITIZE_STRING));

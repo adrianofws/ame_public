@@ -8,21 +8,11 @@ export const ActionSetStateModal = ({ commit }, payload) => {
   commit(types.SET_MODALSTATEDATA, payload);
 };
 
-// export const ActionSetFilmsState = ({ commit }, payload) => {
-//   commit(types.SET_STATEFILMS, payload);
-// };
-
-// export const ActionGetFilms = ({ dispatch }) => {
-//   Http.get("films/").then(response => {
-//     dispatch("ActionSetFilmsState", response.data);
-//   });
-// };
-
 export const ActionGetDonations = ({ dispatch }, payload) => {
+  console.log({ ...payload });
   return new Promise((resolve, reject) => {
-    Http.post("pesquisarReceptores.php")
+    Http.post("pesquisarReceptores.php", { ...payload })
       .then(response => {
-        // dispatch("ActionSetDonations", response.data.RESULT);
         resolve(response.data.RESULT);
       })
       .catch(response => {
@@ -30,8 +20,4 @@ export const ActionGetDonations = ({ dispatch }, payload) => {
         reject(error);
       });
   });
-};
-
-export const ActionSetDonations = ({ commit }, payload) => {
-  commit(types.SET_DONATIONS, payload);
 };

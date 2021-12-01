@@ -5,6 +5,9 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
 include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/com/model/Usuario.php');
 
 header("Content-Type: application/json");
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Methods: *');
 
 $idReceptor = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "idReceptor"), FILTER_SANITIZE_STRING));
 

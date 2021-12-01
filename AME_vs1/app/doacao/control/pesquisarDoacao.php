@@ -4,7 +4,8 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
 
 header("Content-Type: application/json");
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
+header('Access-Control-Allow-Headers: *');
+header('Access-Control-Allow-Methods: *');
 
 $result = (new DoacaoDAO())->getDoacoes();
 
