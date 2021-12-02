@@ -15,12 +15,15 @@ class CidadeDAO extends BaseDAO {
 
         $sql = 'INSERT INTO cidade (
                     id_cidade, 
-                    nm_cidade) VALUES (:id_cidade, 
-                                      :nm_cidade)';
+                    nm_cidade,
+                    id_estado) VALUES (:id_cidade, 
+                                      :nm_cidade,
+                                      :id_estado)';
 
         $parameters = array(
             ':id_cidade' => $cidade->getIdCidade(),
-            ':nm_cidade' => $cidade->getNmCidade()
+            ':nm_cidade' => $cidade->getNmCidade(),
+            ':id_estado' => $cidade->getIdEstado()
         );
 
         parent::insert($sql, $parameters);
@@ -30,6 +33,11 @@ class CidadeDAO extends BaseDAO {
     public function getCidade($idCidade)
 	{
 		return parent::getListCastParam("SELECT * FROM cidade WHERE id_cidade = :id_cidade", array(':id_cidade' => $idCidade));
+	}
+
+    public function getCidadesByEstado($idEstado)
+	{
+        return parent::getListCastParam("SELECT * FROM cidade WHERE id_estado = :id_estado", array(':id_estado' => $idEstado));
 	}
 
     protected function processRow($result) {

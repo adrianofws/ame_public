@@ -15,12 +15,15 @@ class BairroDAO extends BaseDAO {
 
         $sql = 'INSERT INTO bairro (
                     id_bairro, 
-                    nm_bairro) VALUES (:id_bairro, 
-                                      :nm_bairro)';
+                    nm_bairro,
+                    id_cidade) VALUES (:id_bairro, 
+                                      :nm_bairro,
+                                      :id_cidade)';
 
         $parameters = array(
             ':id_bairro' => $bairro->getIdBairro(),
-            ':nm_bairro' => $bairro->getNmBairro()
+            ':nm_bairro' => $bairro->getNmBairro(),
+            ':id_cidade' => $bairro->getIdCidade()
         );
 
         parent::insert($sql, $parameters);
@@ -30,6 +33,11 @@ class BairroDAO extends BaseDAO {
     public function getBairro($idBairro)
 	{
 		return parent::getListCastParam("SELECT * FROM bairro WHERE id_bairro = :id_bairro", array(':id_bairro' => $idBairro));
+	}
+
+    public function getBairrosByCidade($idCidade)
+	{
+        return parent::getListCastParam("SELECT * FROM bairro WHERE id_cidade = :id_cidade", array(':id_cidade' => $idCidade));
 	}
 
     protected function processRow($result) {

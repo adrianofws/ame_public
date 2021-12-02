@@ -61,6 +61,21 @@ class EmpresaDAO extends BaseDAO {
 		return parent::getListCast("SELECT * FROM empresa");
 	}
 
+    public function getEmpresasByEstadoCidadeBairro($idEstado, $idCidade, $idBairro)
+	{
+        return parent::getListCastParam("SELECT 
+                                            * 
+                                        FROM 
+                                            empresa 
+                                        WHERE 1=1 
+                                            and id_federacao = :id_federacao
+                                            and id_cidade = id_cidade
+                                            and id_bairro = id_bairro", 
+                                        array(':id_federacao' => $idEstado,
+                                              ':id_cidade' => $idCidade,
+                                              ':id_bairro' => $idBairro));
+	}
+
     protected function processRow($result) {
 
 		$empresa = new Empresa($result,$this->limpaObjetos);

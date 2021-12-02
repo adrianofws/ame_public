@@ -4,12 +4,14 @@ class Cidade implements JsonSerializable {
 
     protected $idCidade;
     protected $nmCidade;
+    protected $idEstado;
 
     public function jsonSerialize()
 	{
 		return [
 			"idCidade" => (string) $this->idCidade,
-			"nmCidade" => (string) $this->nmCidade
+			"nmCidade" => (string) $this->nmCidade,
+			"idEstado" => (string) $this->idEstado,
 		];
 	}
 
@@ -21,6 +23,7 @@ class Cidade implements JsonSerializable {
 		if (is_array($result)) {
 			$this->idCidade = $result['ID_CIDADE'];
 			$this->nmCidade = $result['NM_CIDADE'];
+			$this->idEstado = $result['ID_ESTADO'];
 		}
 	
     }
@@ -43,6 +46,16 @@ class Cidade implements JsonSerializable {
     public function setNmCidade($nmCidade)
     {
         $this->nmCidade = $nmCidade;
+    }
+
+    public function getIdEstado()
+    {
+        return $this->idEstado;
+    }
+
+    public function setIdEstado($idEstado)
+    {
+        $this->idEstado = $idEstado;
     }
 
 }

@@ -11,7 +11,7 @@ export const ActionSetStateModal = ({ commit }, payload) => {
 export const ActionGetDonations = ({ dispatch }, payload) => {
   console.log({ ...payload });
   return new Promise((resolve, reject) => {
-    Http.post("pesquisarReceptores.php", { ...payload })
+    Http.post("pesquisarReceptores.php")
       .then(response => {
         resolve(response.data.RESULT);
       })

@@ -43,30 +43,35 @@ class DoacaoDAO extends BaseDAO {
 		return parent::getListCast("SELECT * FROM doacao");
 	}
 
-    public function getReceptoresWhere($where)
+    public function getReceptoresByIdEmpresa($idEmpresa)
 	{
         
         $sql = "select
                     UR.ID_USUARIO ID_RECEPTOR,
                     UR.NM_USUARIO NM_RECEPTOR,
                     E.NM_EMPRESA,
+                    E.DS_ENDERECO,
                     RE.DS_MOTIVO_DOACAO
                 from
                     empresa e,
                     usuario ur,
                     receptor_empresa re,
                     estado es,
-                    bairro b ,
+                    bairro b,
                     cidade c 
                 where 1=1
+                    and e.ID_EMPRESA = :id_empresa
                     and UR.ID_USUARIO = RE.ID_RECEPTOR
                     and E.ID_EMPRESA = RE.ID_EMPRESA
                     and e.id_federacao = es.id_estado
                     and e.ID_BAIRRO = b.ID_BAIRRO 
-                    and e.ID_CIDADE = c.ID_CIDADE
-                    $where";
+                    and e.ID_CIDADE = c.ID_CIDADE";
+
+        $parameters = array(
+            ':id_empresa' => $idEmpresa
+        );
 		
-        return parent::getListNoCast($sql);
+        return parent::getListNoCastParam($sql, $parameters);
 	}
 
     public function getModalAgendaDoacao(Usuario $usuario)

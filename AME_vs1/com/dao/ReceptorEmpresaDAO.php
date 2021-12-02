@@ -13,12 +13,12 @@ class ReceptorEmpresaDAO extends BaseDAO {
     
     public function insertReceptorEmpresa(ReceptorEmpresa $receptorEmpresa) {
 
-        $sql = 'INSERT INTO receptor_empresa (
-                    idEmpresa, 
-                    idReceptor, 
-                    dsMotivoDoacao) VALUES (:id_empresa, 
+        $sql = "INSERT INTO receptor_empresa (
+                    id_empresa, 
+                    id_receptor, 
+                    ds_motivo_doacao) VALUES (:id_empresa, 
                                       :id_receptor, 
-                                      :ds_motivo_doacao)';
+                                      :ds_motivo_doacao)";
 
         $parameters = array(
             ':id_empresa' => $receptorEmpresa->getIdEmpresa(),
@@ -26,7 +26,7 @@ class ReceptorEmpresaDAO extends BaseDAO {
             ':ds_motivo_doacao' => $receptorEmpresa->getDsMotivoDoacao(),
         );
 
-        parent::insert($sql, $parameters);
+        return parent::insert($sql, $parameters);
 
     }
 

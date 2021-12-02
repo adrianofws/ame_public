@@ -4,12 +4,14 @@ class Bairro implements JsonSerializable {
 
     protected $idBairro;
     protected $nmBairro;
+    protected $idCidade;
 
     public function jsonSerialize()
 	{
 		return [
 			"idBairro" => (string) $this->idBairro,
-			"nmBairro" => (string) $this->nmBairro
+			"nmBairro" => (string) $this->nmBairro,
+			"idCidade" => (string) $this->idCidade
 		];
 	}
 
@@ -21,6 +23,7 @@ class Bairro implements JsonSerializable {
 		if (is_array($result)) {
 			$this->idBairro = $result['ID_BAIRRO'];
 			$this->nmBairro = $result['NM_BAIRRO'];
+			$this->idCidade = $result['ID_CIDADE'];
 		}
 	
     }
@@ -43,6 +46,16 @@ class Bairro implements JsonSerializable {
     public function setNmBairro($nmBairro)
     {
         $this->nmBairro = $nmBairro;
+    }
+
+    public function getIdCidade()
+    {
+        return $this->idCidade;
+    }
+
+    public function setIdCidade($idCidade)
+    {
+        $this->idCidade = $idCidade;
     }
 
 }

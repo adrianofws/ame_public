@@ -6,6 +6,8 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
 
 header("Content-Type: application/json");
 
+session_start();
+
 $nrCpf = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nrCpf"), FILTER_SANITIZE_STRING));
 $dsSenha = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "dsSenha"), FILTER_SANITIZE_STRING));
 

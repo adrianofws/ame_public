@@ -32,6 +32,11 @@ class EstadoDAO extends BaseDAO {
 		return parent::getListCastParam("SELECT * FROM estado WHERE id_estado = :id_estado", array(':id_estado' => $idEstado));
 	}
 
+    public function getEstados()
+	{
+		return parent::getListCast("SELECT * FROM estado");
+	}
+
     protected function processRow($result) {
 
 		$estado = new Estado($result,$this->limpaObjetos);

@@ -7,29 +7,25 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Headers: *');
 header('Access-Control-Allow-Methods: *');
 
-$nmEstado = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nmEstado"), FILTER_SANITIZE_STRING));
-$nmCidade = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nmCidade"), FILTER_SANITIZE_STRING));
-$nmBairro = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nmBairro"), FILTER_SANITIZE_STRING));
-$nmEmpresa = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nmEmpresa"), FILTER_SANITIZE_STRING));
-$nmReceptor = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "nmReceptor"), FILTER_SANITIZE_STRING));
+$idEmpresa = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "idEmpresa"), FILTER_SANITIZE_STRING));
 
-$where = "";
+// $where = "";
 
-if ($nmEstado !== "")
-    $where .= " AND (UPPER(es.nm_estado) LIKE UPPER('%$nmEstado%')) ";
+// if ($nmEstado !== "")
+//     $where .= " AND (UPPER(es.nm_estado) LIKE UPPER('%$nmEstado%')) ";
 
-if ($nmCidade!== "")
-    $where .= " AND (UPPER(c.nm_cidade) LIKE UPPER('%$nmCidade%')) ";
+// if ($nmCidade!== "")
+//     $where .= " AND (UPPER(c.nm_cidade) LIKE UPPER('%$nmCidade%')) ";
 
-if ($nmBairro !== "")
-    $where .= " AND (UPPER(b.nm_bairro) LIKE UPPER('%$nmBairro%')) ";
+// if ($nmBairro !== "")
+//     $where .= " AND (UPPER(b.nm_bairro) LIKE UPPER('%$nmBairro%')) ";
 
-if ($nmEmpresa !== "")
-    $where .= " AND (UPPER(e.nm_empresa) LIKE UPPER('%$nmEmpresa%')) ";
+// if ($nmEmpresa !== "")
+//     $where .= " AND (UPPER(e.nm_empresa) LIKE UPPER('%$nmEmpresa%')) ";
 
-if ($nmReceptor !== "")
-    $where .= " AND (UPPER(ur.nm_usuario) LIKE UPPER('%$nmReceptor%')) ";
+// if ($nmReceptor !== "")
+//     $where .= " AND (UPPER(ur.nm_usuario) LIKE UPPER('%$nmReceptor%')) ";
 
-$result = (new DoacaoDAO())->getReceptoresWhere($where);
+$result = (new DoacaoDAO())->getReceptoresByIdEmpresa($idEmpresa);
 
 echo json_encode(['STATUS' => true, 'RESULT' => $result]);

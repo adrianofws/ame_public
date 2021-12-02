@@ -1,6 +1,10 @@
+<?php 
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+    
     <head>
         <title>Projeto Ame</title>
         <meta charset="UTF-8">
@@ -9,8 +13,22 @@
         <meta name="keywords" content="leite materno, amamentação, doação de leite"> 
         <link rel="stylesheet" href="css/estilo.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+        
+        <link rel="stylesheet" type="text/css" href="../semantic/dist/semantic.min.css">
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+        </script>
+        <script src="../semantic/dist/semantic.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     </head>
+    
     <body>
+
+    <div id="dimmer" class="ui active dimmer">
+        <div class="ui loader"></div>
+    </div>
         
         <div id="principal">
             
@@ -18,33 +36,19 @@
                 <img class="logotipo" src="imagens/logo_ame.jpg" alt="Logotipo ame">
                 <nav class="buttons">
                     <ul>
-                        <li><a class="doe" href="http://localhost:8080/#/">Doe vida</a></li>
-                        <li><a class="conheca" href="#conheca">Conheça</a></li>
-                        <li><a class="parceiros" href="#parceiros">Parceiros</a></li>
-                        <li><a class="contato" href="contato/contato.html">Contato</a></li>
-                        <!--<li><a class="duvidas" href="#duvidas">Dúvidas</a></li>-->
+                        <li id="login"><a class="login" href="../app/login/index.php">login</a></li>
+                        <li id="cadastro"><a class="cadastro" href="../app/cadastro/index.php">cadastro</a></li>
+                        <li id="doe"><a class="doe" href="http://localhost:8080/#/">Doe vida</a></li>
+                        <li id="receberDoacao"><a class="conheca" href="../app/receberDoacao/index.php">receba doações</a></li>
+                        <li style="cursor: pointer;" onclick="exibirModal()"> <a id="cadastros" class="contato">Unidades de espera</a></li>
+                        <li id="deslogar" onclick="deslogar()"><a class="duvidas" href="#duvidas">Sair</a></li>
                     </ul>
                 </nav>
                 
                 <div class="hero-content">
                     <h1>Doe esperança<br>doe vida<br>doe amor</h1>
-                    <div id="social-media-div">
-                        <h2>Siga-nos nas redes sociais</h2>
-                            <a href="#" class="fa fa-twitter"></a>
-                            <a href="#" class="fa fa-facebook"></a>
-                            <a href="#" class="fa fa-youtube"></a>
-                            <a href="#" class="fa fa-instagram"></a>
-                            <a href="#" class="fa fa-reddit"></a>
-                </div>                
                 </div>
-                <!--<div id="social-media-div">
-                    <h2>Siga-nos nas redes sociais</h2>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-youtube"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                    <a href="#" class="fa fa-reddit"></a>
-                </div>-->
+                
             </header>
             <main>
                 <section class="content-section-cards">
@@ -345,26 +349,89 @@
                 </section>
 
             </main>
-            <footer>
+
+            <footer style="padding: 10px;">
                 <p>
                     Copyright Ame &copy; 2020
                 </p>
             </footer>
         </div>
+
+        <div id="modal" style="background-color: white; padding: 15px; border-radius: 5px;" class="ui basic modal">
+
+            <form class="ui form">
+                
+                <h1 class="ui dividing header">Suas unidades cadastradas para receber doações</h1>
+
+                <table class="ui celled table">
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>Endereço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="nmEmpresa">Hospital Ame</td>
+                            <td data-label="dsEndereco">Avenida Boa Vista</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="ui button" style="float: right;" onclick="fechaModal();">
+                    Ok
+                </button>
+
+            </form>
+        
+        </div>
+
     </body>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
 
         $(document).ready(function() {
 
-            $(".cadastro").click(function() {
+            $("#modal").hide();
+            $("#dimmer").removeClass("active");
 
-                location.href = "./register/register.php";
+            $("#doe").hide();
+            $("#receberDoacao").hide();
+            $("#cadastros").hide();
+            $("#deslogar").hide();
 
-            });
+            if("<?php echo isset($_SESSION["idUsuarioLogado"]); ?>" != "") {
+                $("#doe").show();
+                $("#cadastros").show();
+                $("#receberDoacao").show();
+                $("#deslogar").show();
+            }
 
         });
+
+        function exibirModal() {
+            $('.ui.basic.modal').modal('show');
+        }
+
+        function fechaModal() {
+            event.preventDefault();
+            $('.ui.basic.modal').modal('hide');
+        }
+
+        function deslogar () {
+
+            setTimeout(function() {
+                
+                $("body").css("overflow", "hidden");
+                $("#dimmer").addClass("active");
+                
+                <?php unset($_SESSION["idUsuarioLogado"]); ?>
+                
+            }, 2000);
+
+            document.location.reload(true);
+
+        }
 
     </script>
     
