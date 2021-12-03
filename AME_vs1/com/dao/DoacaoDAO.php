@@ -47,8 +47,11 @@ class DoacaoDAO extends BaseDAO {
 	{
         
         $sql = "select
+                    RE.ID_RECEPTOR_EMPRESA,
                     UR.ID_USUARIO ID_RECEPTOR,
                     UR.NM_USUARIO NM_RECEPTOR,
+                    UR.DT_NASCIMENTO,
+                    E.ID_EMPRESA,
                     E.NM_EMPRESA,
                     E.DS_ENDERECO,
                     RE.DS_MOTIVO_DOACAO
@@ -79,20 +82,16 @@ class DoacaoDAO extends BaseDAO {
         
         $sql = "select
                     E.ID_EMPRESA,
-                    UR.ID_USUARIO ID_RECEPTOR,
                     E.NM_EMPRESA,
-                    E.DS_ENDERECO,
+                    UR.ID_USUARIO ID_RECEPTOR,
                     UR.NM_USUARIO,
-                    UR.DS_DESCRICAO
+                    RE.DS_MOTIVO_DOACAO
                 from
-                    doacao d,
                     empresa e,
                     usuario ur,
                     receptor_empresa re
                 where 1=1
                     and UR.ID_USUARIO = :id_receptor
-                    and D.ID_RECEPTOR = UR.ID_USUARIO
-                    and D.ID_EMPRESA = E.ID_EMPRESA
                     and E.ID_EMPRESA = RE.ID_EMPRESA
                     and UR.ID_USUARIO = RE.ID_RECEPTOR";
 

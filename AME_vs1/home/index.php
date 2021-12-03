@@ -38,7 +38,7 @@
                     <ul>
                         <li id="login"><a class="login" href="../app/login/index.php">login</a></li>
                         <li id="cadastro"><a class="cadastro" href="../app/cadastro/index.php">cadastro</a></li>
-                        <li id="doe"><a class="doe" href="http://localhost:8080/#/">Doe vida</a></li>
+                        <li id="doe"><a class="doe" href="../app/doacao/index.php">Doe vida</a></li>
                         <li id="receberDoacao"><a class="conheca" href="../app/receberDoacao/index.php">receba doações</a></li>
                         <li style="cursor: pointer;" onclick="exibirModal()"> <a id="cadastros" class="contato">Unidades de espera</a></li>
                         <li id="deslogar" onclick="deslogar()"><a class="duvidas" href="#duvidas">Sair</a></li>
@@ -379,7 +379,7 @@
                 </table>
 
                 <button class="ui button" style="float: right;" onclick="fechaModal();">
-                    Ok
+                    Voltar
                 </button>
 
             </form>

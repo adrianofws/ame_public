@@ -20,10 +20,18 @@
             background-repeat: no-repeat;
         }
 
+        .row:hover {
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+
+        .row {
+            cursor: pointer;
+        }
+
         .content {
             margin: 0 auto;
             margin-top: 15px;
-            width: 50%;
+            width: 70%;
             padding: 10px;
             background-color: rgba(0, 0, 0, 0.04);
             border-radius: 5px;
@@ -44,10 +52,9 @@
 
         <section class="content">
 
-            <h1>Você também pode ser ajudado!</h1>
+            <h1>Realize aqui a sua doação!</h1>
             <p>
-                Você pode usar esta funcionalidade para encontrar um dos nosso colaboradores mais próximos de sua casa!
-                Conte-nos sobre você, cadastre-se e receba doações.
+                Você pode usar esta funcionalidade para encontrar o colaborador mais próximo de sua casa para fazer doações.
             </p>
 
         </section>
@@ -101,6 +108,18 @@
 
         <div class="divider"> </div>
 
+        <section id="sectionAlertaVerde" class="content">
+            <div id="alertaVerde" class="ui success message">
+                <i class="close icon" onclick="$('#sectionAlertaVerde').css('display', 'none');"></i>
+                <div class="header">
+                    Sua doação foi concluída!
+                </div>
+                <p>Você acabou de deixar alguém muito feliz! :)</p>
+            </div>
+        </section>
+
+        <div class="divider"> </div>
+        
         <section class="content">
 
             <table class="ui celled table">
@@ -108,21 +127,68 @@
                     <tr>
                         <th>Empresa</th>
                         <th>Endereço da Empresa</th>
-                        <th>Nome do Receptor</th>
+                        <th>Nome do Beneficiado</th>
                         <th>Idade</th>
                     </tr>
                 </thead>
-                <tbody id="tbReceptores">
-                    <!-- <tr>
-                        <td data-label="nmEmpresa">Hospital Ame</td>
-                        <td data-label="dsEndereco">Avenida Boa Vista</td>
-                        <td data-label="nmReceptor">Gabriel Ewerton</td>
-                        <td data-label="nrIdade">22</td>
-                    </tr> -->
-                </tbody>
+                <tbody id="tbReceptores"></tbody>
             </table>
 
         </section>
+
+        <div id="modal" style="background-color: white; padding: 15px; border-radius: 5px; height: 395px;" class="ui basic modal">
+
+            <div id="dimmer" class="ui active dimmer">
+                <div class="ui loader"></div>
+            </div>
+
+            <form class="ui form">
+
+                <h2 id="empresaEndereco" class="ui dividing header"></h2>
+                
+                <div class="two fields">
+
+                    <div class="field">
+                        <label>Nome do Beneficiado</label>
+                        <input type="text" id="nmReceptor" readonly>
+                    </div>
+
+                    <div class="field">
+                        <label>Idade</label>
+                        <input type="text" id="nrIdade" readonly>
+                    </div>
+
+                </div>
+
+                <div class="field">
+                    <label>Sobre o Beneficiado:</label>
+                    <textarea id="dsMotivoDoacao" readonly></textarea>
+                </div>
+
+                <div class="three fields">
+                
+                    <div class="field" style="width: 25%;">
+                        <label>Data da Doação</label>
+                        <input type="text" id="dtDoacao">
+                    </div>
+
+                    <div class="field" style="margin-top: 17px;">
+                        <button id="btnDoacao" class="ui pink button">
+                            Agendar Doação
+                        </button>
+                    </div>
+
+                    <div class="field" style="margin-top: 17px; float: right; width: 41%;">
+                        <button class="ui button" style="float: right;" onclick="fechaModal();">
+                            Voltar
+                        </button>
+                    </div>
+               
+                </div>
+
+            </form>
+        
+        </div>
         
     </body>
 
@@ -133,6 +199,11 @@
         });
 
         function init() {
+
+            $("#dimmer").removeClass("active");
+
+            let dtDoacao = $('#dtDoacao');
+            dtDoacao.mask('99/99/9999');
 
             carregaEstados();
 
@@ -178,51 +249,15 @@
             $('#idEmpresa').addClass("disabled");
 
             $('#loader').hide();
-            $('#alertaVerde').hide();
+            $('#sectionAlertaVerde').css('display', 'none');
             $('#alertaVermelho').hide();
         
         }
 
-        $("#btnCadastro").click(function(event) {
-
+        function fechaModal() {
             event.preventDefault();
-
-            $('#loader').show();
-            $('#btnCadastro').hide();
-
-            let data = new FormData();
-
-            data.append("idEmpresa", $("#idEmpresa").val());
-            data.append("dsMotivoDoacao", $("#dsMotivoDoacao").val());
-
-            $.ajax({
-                url: "./control/receberDoacao.php",
-                type: "POST",
-                dataType: "json",
-                data: data,
-                processData: false,
-                contentType: false
-            }).done(function(result) {
-
-                setTimeout(function() {
-
-                    $('#loader').hide();
-                    $('#btnCadastro').show();
-
-                    if(result.STATUS) {
-                        $('#alertaVerde').show();
-                        location.href = "../../home/index.php";
-                    } else {
-                        $('#alertaVermelho').show();
-                    }
-
-                }, 1000);
-
-            }).fail(function(jqXHR, textStatus ) {
-                console.log("Request failed: " + textStatus);
-            });
-
-        });
+            $('.ui.basic.modal').modal('hide');
+        }
 
         function carregaEstados() {
 
@@ -395,14 +430,20 @@
                     let tabelaReceptores = $("#tbReceptores");
 
                     dadosReceptores.forEach((dados, indice) => {
-                    
-                        let row = $('<tr></tr>').appendTo(tabelaReceptores);
+
+                        let dtNascArray = dados.DT_NASCIMENTO.split("-");
+                        let idade = calculaIdade(parseInt(dtNascArray[0]), parseInt(dtNascArray[1]), parseInt(dtNascArray[2]));
+                        
+                        let row = $("<tr class='row' onclick='modalDoacao("+dados.ID_RECEPTOR_EMPRESA+","+count+");'></tr>").appendTo(tabelaReceptores);
 
                         $('<td id="'+count+'_idReceptor" style="display: none" data-label="idReceptor"></td>').text(dados.ID_RECEPTOR).appendTo(row);
+                        $('<td id="'+count+'_idEmpresa" style="display: none" data-label="idEmpresa"></td>').text(dados.ID_EMPRESA).appendTo(row);
+                        $('<td id="'+count+'_dsMotivoDoacao" style="display: none" data-label="dsMotivoDoacao"></td>').text(dados.DS_MOTIVO_DOACAO).appendTo(row);
+                        
                         $('<td id="'+count+'_nmEmpresa" data-label="nmEmpresa"></td>').text(dados.NM_EMPRESA).appendTo(row);
                         $('<td id="'+count+'_dsEndereco" data-label="dsEndereco"></td>').text(dados.DS_ENDERECO).appendTo(row);
                         $('<td id="'+count+'_nmReceptor" data-label="nmReceptor"></td>').text(dados.NM_RECEPTOR).appendTo(row);
-                        $('<td id="'+count+'_nrIdade" data-label="nrIdade"></td>').text(22).appendTo(row);
+                        $('<td id="'+count+'_nrIdade" data-label="nrIdade"></td>').text(idade).appendTo(row);
                         
                         count++;
                         
@@ -414,6 +455,98 @@
                 console.log("Request failed: " + textStatus);
             });
 
+        }
+
+        function modalDoacao(numero) {
+            
+            $('.ui.basic.modal').modal('show');
+            
+            $("#btnDoacao").click(function() {
+                insereDoacao(numero);
+            });
+
+            let nmEmpresa = $("#"+numero+"_nmEmpresa").text();
+            let dsEndereco = $("#"+numero+"_dsEndereco").text();
+            let nmReceptor = $("#"+numero+"_nmReceptor").text();
+            let nrIdade = $("#"+numero+"_nrIdade").text();
+            let dsMotivoDoacao = $("#"+numero+"_dsMotivoDoacao").text();
+
+            $("#empresaEndereco").text(nmEmpresa + " - " + dsEndereco);
+            $("#nmReceptor").val(nmReceptor);
+            $("#nrIdade").val(nrIdade);
+            $("#dsMotivoDoacao").val(dsMotivoDoacao);
+
+        }
+
+        function insereDoacao(numero) {
+
+            event.preventDefault();
+
+            $("#dimmer").addClass("active");
+            $("body").css("overflow", "hidden");
+
+            let idDoador = 1;
+            let idReceptor = $("#"+numero+"_idReceptor").text();
+            let idEmpresa = $("#"+numero+"_idEmpresa").text();
+            
+            let dtDoacaoArray = $("#dtDoacao").val().split("/");
+            let dtDoacao = dtDoacaoArray[2] + "-" + dtDoacaoArray[1] +  "-" + dtDoacaoArray[0];
+
+            let data = new FormData();
+
+            data.append("idDoador", idDoador);
+            data.append("idReceptor", idReceptor);
+            data.append("idEmpresa", idEmpresa);
+            data.append("dtDoacao", dtDoacao);
+
+            $.ajax({
+                url: "./control/inserirDoacao.php",
+                type: "POST",
+                dataType: "json",
+                data: data,
+                processData: false,
+                contentType: false
+            }).done(function(result) {
+
+                setTimeout(function() {
+
+                    $("#dimmer").removeClass("active");
+                    $("body").css("overflow", "");
+
+                    if(result.STATUS) {
+
+                        $('.ui.basic.modal').modal('hide');
+                        $('#sectionAlertaVerde').css('display', '');
+
+                    } else {
+                        console.log("deu ruim");
+                    }
+
+                }, 1000);
+
+            }).fail(function(jqXHR, textStatus ) {
+                console.log("Request failed: " + textStatus);
+            });
+
+        }
+
+        function calculaIdade(ano, mes, dia) {
+            var d = new Date,
+                ano_atual = d.getFullYear(),
+                mes_atual = d.getMonth() + 1,
+                dia_atual = d.getDate(),
+
+                ano = +ano,
+                mes = +mes,
+                dia = +dia,
+
+                quantos_anos = ano_atual - ano;
+
+            if (mes_atual < mes || mes_atual == mes && dia_atual < dia) {
+                quantos_anos--;
+            }
+
+            return quantos_anos < 0 ? 0 : quantos_anos;
         }
 
     </script>

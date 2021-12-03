@@ -90,7 +90,7 @@
                     <label>Empresa</label>
                     <select id="idEmpresa" class="ui fluid dropdown">
                         <option value="">Selecione a empresa</option>
-                        <option value="4">Hospital Ame</option>
+                        <option value="1">Hospital Ame</option>
                     </select>
                 </div>
 
