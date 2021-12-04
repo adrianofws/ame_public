@@ -10,6 +10,7 @@ class Doacao implements JsonSerializable {
     protected $idDoador;
     protected $idReceptor;
     protected $idEmpresa;
+    protected $dsDoacao;
     protected $dtDoacao;
 
     private $_empresa;
@@ -23,6 +24,7 @@ class Doacao implements JsonSerializable {
 			"idDoador" => (string) $this->idDoador,
 			"idReceptor" => (string) $this->idReceptor,
 			"idEmpresa" => (string) $this->idEmpresa,
+			"dsDoacao" => (string) $this->dsDoacao,
 			"dtDoacao" => (string) $this->dtDoacao,
 			"empresa" => $this->limpaObjetos ? null : $this->getEmpresa(),
 			"doador" => $this->limpaObjetos ? null : $this->getDoador(),
@@ -40,6 +42,7 @@ class Doacao implements JsonSerializable {
 			$this->idDoador = $result['ID_DOADOR'];
 			$this->idReceptor = $result['ID_RECEPTOR'];
 			$this->idEmpresa = $result['ID_EMPRESA'];
+			$this->dsDoacao = $result['DS_DOACAO'];
 			$this->dtDoacao = $result['DT_DOACAO'];
 		}
 	
@@ -116,6 +119,16 @@ class Doacao implements JsonSerializable {
     public function setIdEmpresa($idEmpresa)
     {
         $this->idEmpresa = $idEmpresa;
+    }
+
+    public function getDsDoacao()
+    {
+        return $this->dsDoacao;
+    }
+
+    public function setDsDoacao($dsDoacao)
+    {
+        $this->dsDoacao = $dsDoacao;
     }
 
     public function getDtDoacao()

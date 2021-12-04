@@ -89,7 +89,6 @@
                         <label>Bairro</label>
                         <select id="idBairro" class="ui fluid dropdown">
                             <option value="">Selecione seu bairro</option>
-                            <option value="1">Janga</option>
                         </select>
                     </div>
 
@@ -136,7 +135,7 @@
 
         </section>
 
-        <div id="modal" style="background-color: white; padding: 15px; border-radius: 5px; height: 395px;" class="ui basic modal">
+        <div id="modal" style="background-color: white; padding: 15px; border-radius: 5px; height: 595px;" class="ui basic modal">
 
             <div id="dimmer" class="ui active dimmer">
                 <div class="ui loader"></div>
@@ -163,6 +162,11 @@
                 <div class="field">
                     <label>Sobre o Beneficiado:</label>
                     <textarea id="dsMotivoDoacao" readonly></textarea>
+                </div>
+
+                <div class="field">
+                    <label>O que será doado:</label>
+                    <textarea id="dsDoacao"></textarea>
                 </div>
 
                 <div class="three fields">
@@ -193,6 +197,11 @@
     </body>
 
     <script>
+
+        if(getUrlVar("idUsuario"))
+            var idUsuario = window.atob(getUrlVar("idUsuario"));
+
+        console.log("idUsuario ", idUsuario);
 
         $(document).ready(function() {
             init();
@@ -251,6 +260,25 @@
             $('#loader').hide();
             $('#sectionAlertaVerde').css('display', 'none');
             $('#alertaVermelho').hide();
+        
+        }
+
+        function getUrlVar(variavel) {
+            
+            let query = window.location.search.substring(1);
+            let variaveis = query.split("&");
+            let valor;
+            
+            for (let i = 0; i < variaveis.length; i++) {
+
+                valor = variaveis[i].split("=");
+                
+                if (valor[0] == variavel) 
+                    return valor[1];
+            
+            }
+            
+            return false;
         
         }
 
@@ -330,7 +358,7 @@
 
         }
 
-        function carregaBairros($idCidade) {
+        function carregaBairros(idCidade) {
 
             let data = new FormData();
 
@@ -485,18 +513,21 @@
             $("#dimmer").addClass("active");
             $("body").css("overflow", "hidden");
 
-            let idDoador = 1;
+            let idDoador = idUsuario;
             let idReceptor = $("#"+numero+"_idReceptor").text();
             let idEmpresa = $("#"+numero+"_idEmpresa").text();
             
             let dtDoacaoArray = $("#dtDoacao").val().split("/");
             let dtDoacao = dtDoacaoArray[2] + "-" + dtDoacaoArray[1] +  "-" + dtDoacaoArray[0];
 
+            let dsDoacao = $("#dsDoacao").val();
+
             let data = new FormData();
 
             data.append("idDoador", idDoador);
             data.append("idReceptor", idReceptor);
             data.append("idEmpresa", idEmpresa);
+            data.append("dsDoacao", dsDoacao);
             data.append("dtDoacao", dtDoacao);
 
             $.ajax({

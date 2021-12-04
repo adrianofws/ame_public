@@ -11,10 +11,11 @@ session_start();
 
 $idEmpresa = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "idEmpresa"), FILTER_SANITIZE_STRING));
 $dsMotivoDoacao = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "dsMotivoDoacao"), FILTER_SANITIZE_STRING));
+$idUsuario = trim(FILTER_VAR(FILTER_INPUT(INPUT_POST, "idUsuario"), FILTER_SANITIZE_STRING));
 
 $receptorEmpresa = new receptorEmpresa();
 
-$receptorEmpresa->setIdReceptor($_SESSION["idUsuarioLogado"]);
+$receptorEmpresa->setIdReceptor($idUsuario);
 $receptorEmpresa->setIdEmpresa($idEmpresa);
 $receptorEmpresa->setDsMotivoDoacao($dsMotivoDoacao);
 

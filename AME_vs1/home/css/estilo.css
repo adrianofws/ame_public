@@ -74,6 +74,13 @@ body{
 .hero nav li a.duvidas:hover{
     background: rgba(246,128,30,0.5);
 }
+.hero nav li a.empresas{
+    background-color: #ff0000;
+    border-radius: 4px;
+}
+.hero nav li a.empresas:hover{
+    background: #ff4040;
+}
 .hero nav li a.doe{
     background-color: #53c5cf;
     border-radius: 4px;

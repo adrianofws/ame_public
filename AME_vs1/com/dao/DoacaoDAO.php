@@ -17,15 +17,18 @@ class DoacaoDAO extends BaseDAO {
                     id_doador, 
                     id_receptor,
                     id_empresa,
+                    ds_doacao,
                     dt_doacao) VALUES (:id_doador, 
                                       :id_receptor, 
                                       :id_empresa, 
+                                      :ds_doacao,
                                       ':dt_doacao')";
 
         $parameters = array(
             ':id_doador' => $doacao->getIdDoador(),
             ':id_receptor' => $doacao->getIdReceptor(),
             ':id_empresa' => $doacao->getIdEmpresa(),
+            ':ds_doacao' => $doacao->getDsDoacao(),
             ':dt_doacao' => $doacao->getDtDoacao()
         );
 
@@ -72,6 +75,32 @@ class DoacaoDAO extends BaseDAO {
 
         $parameters = array(
             ':id_empresa' => $idEmpresa
+        );
+		
+        return parent::getListNoCastParam($sql, $parameters);
+	}
+
+    public function getDoacoesByIdUsuario($idUsuario)
+	{
+        
+        $sql = "select 
+                    ud.NM_USUARIO NM_DOADOR,
+                    d.DS_DOACAO,
+                    e.NM_EMPRESA,
+                    e.DS_ENDERECO
+                from 
+                    doacao d,
+                    empresa e,
+                    usuario u,
+                    usuario ud
+                where 1=1
+                    and u.ID_USUARIO = :id_usuario
+                    and d.ID_RECEPTOR = u.ID_USUARIO
+                    and d.ID_DOADOR = ud.ID_USUARIO
+                    and d.ID_EMPRESA = e.ID_EMPRESA";
+
+        $parameters = array(
+            ':id_usuario' => $idUsuario
         );
 		
         return parent::getListNoCastParam($sql, $parameters);

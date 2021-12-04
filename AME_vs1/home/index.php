@@ -40,7 +40,8 @@
                         <li id="cadastro" style="cursor: pointer;"><a class="cadastro" href="../app/cadastro/index.php">cadastro</a></li>
                         <li id="doe" style="cursor: pointer;" onclick="abrirDoe()"><a class="doe">Doe vida</a></li>
                         <li id="receberDoacao" style="cursor: pointer;" onclick="abrirReceberDoacao()"><a class="conheca">receba doações</a></li>
-                        <li style="cursor: pointer;" onclick="exibirModal()"> <a id="cadastros" class="contato">Unidades de espera</a></li>
+                        <li id="cadastros" style="cursor: pointer;" onclick="exibirModal1()"> <a class="contato">Doções Recebidas</a></li>
+                        <li id="empresas" style="cursor: pointer;" onclick="exibirModal2()"> <a class="empresas">Empresas Cadastradas</a></li>
                         <li id="deslogar" onclick="deslogar()"><a class="duvidas" href="#duvidas">Sair</a></li>
                     </ul>
                 </nav>
@@ -357,28 +358,49 @@
             </footer>
         </div>
 
-        <div id="modal" style="background-color: white; padding: 15px; border-radius: 5px;" class="ui basic modal">
+        <div id="modalDoacoes" style="background-color: white; padding: 15px; border-radius: 5px;" class="ui basic modal">
 
             <form class="ui form">
                 
-                <h1 class="ui dividing header">Suas unidades cadastradas para receber doações</h1>
+                <h1 class="ui dividing header">Doações Recebidas</h1>
 
                 <table class="ui celled table">
                     <thead>
                         <tr>
+                            <th>Nome do doador</th>
+                            <th>O que foi doado</th>
                             <th>Empresa</th>
+                            <th>Endereço da Empresa</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbDoacoes"></tbody>
+                </table>
+
+                <button class="ui button" style="float: right;" onclick="fechaModal1();">
+                    Voltar
+                </button>
+
+            </form>
+        
+        </div>
+
+        <div id="modalEmpresas" style="background-color: white; padding: 15px; border-radius: 5px;" class="ui basic modal">
+
+            <form class="ui form">
+                
+                <h1 class="ui dividing header">Doações Recebidas</h1>
+
+                <table class="ui celled table">
+                    <thead>
+                        <tr>
+                            <th>Nome da Empresa</th>
                             <th>Endereço</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="nmEmpresa">Hospital Ame</td>
-                            <td data-label="dsEndereco">Avenida Boa Vista</td>
-                        </tr>
-                    </tbody>
+                    <tbody id="tbEmpresas"></tbody>
                 </table>
 
-                <button class="ui button" style="float: right;" onclick="fechaModal();">
+                <button class="ui button" style="float: right;" onclick="fechaModal2();">
                     Voltar
                 </button>
 
@@ -397,22 +419,108 @@
 
             console.log("idUsuario: ", idUsuario);
 
-            $("#modal").hide();
+            $("#modalDoacoes").hide();
             $("#dimmer").removeClass("active");
 
             $("#doe").hide();
             $("#receberDoacao").hide();
+            $("#empresas").hide();
             $("#cadastros").hide();
             $("#deslogar").hide();
 
             if(idUsuario) {
                 $("#doe").show();
-                $("#cadastros").show();
                 $("#receberDoacao").show();
+                $("#empresas").show();
+                $("#cadastros").show();
                 $("#deslogar").show();
             }
 
         });
+
+        function carregaTabela1(idUsuario) {
+
+            let data = new FormData();
+
+            data.append("idUsuario", idUsuario);
+
+            $.ajax({
+                url: "./control/pesquisarDoacoes.php",
+                type: "POST",
+                dataType: "json",
+                data: data,
+                processData: false,
+                contentType: false
+            }).done(function(result) {
+
+                if(result.STATUS) {
+
+                    let count = 1;
+                    let doacoes = result.RESULT;
+                    let tabelaDoacoes = $("#tbDoacoes");
+
+                    doacoes.forEach((dados, indice) => {
+
+                        let row = $("<tr class='row'></tr>").appendTo(tabelaDoacoes);
+
+                        $('<td data-label="nmDoador"></td>').text(dados.NM_DOADOR).appendTo(row);
+                        $('<td data-label="dsDoacao"></td>').text(dados.DS_DOACAO).appendTo(row);
+                        $('<td data-label="nmEmpresa"></td>').text(dados.NM_EMPRESA).appendTo(row);
+                        $('<td data-label="dsEndereco"></td>').text(dados.DS_ENDERECO).appendTo(row);
+                        
+                        count++;
+                        
+                    });
+
+                }
+
+            }).fail(function(jqXHR, textStatus ) {
+                console.log("Request failed: " + textStatus);
+            });
+
+        }
+
+        function carregaTabela2(idUsuario) {
+
+            console.log("idUsuario 2 ", idUsuario);
+
+            let data = new FormData();
+
+            data.append("idUsuario", idUsuario);
+
+            $.ajax({
+                url: "./control/pesquisarEmpresas.php",
+                type: "POST",
+                dataType: "json",
+                data: data,
+                processData: false,
+                contentType: false
+            }).done(function(result) {
+
+                if(result.STATUS) {
+
+                    let count = 1;
+                    let empresas = result.RESULT;
+                    let tabelaEmpresas = $("#tbEmpresas");
+
+                    empresas.forEach((dados, indice) => {
+
+                        let row = $("<tr class='row'></tr>").appendTo(tabelaEmpresas);
+
+                        $('<td data-label="nmEmpresa"></td>').text(dados.NM_EMPRESA).appendTo(row);
+                        $('<td data-label="dsEndereco"></td>').text(dados.DS_ENDERECO).appendTo(row);
+                        
+                        count++;
+                        
+                    });
+
+                }
+
+            }).fail(function(jqXHR, textStatus ) {
+                console.log("Request failed: " + textStatus);
+            });
+
+        }
 
         function abrirReceberDoacao() {
             location.href = '../app/receberDoacao/index.php?idUsuario=' + window.btoa(idUsuario);
@@ -422,13 +530,58 @@
             location.href = '../app/doacao/index.php?idUsuario=' + window.btoa(idUsuario);
         }
 
-        function exibirModal() {
-            $('.ui.basic.modal').modal('show');
+        function exibirModal1() {
+
+            $("#dimmer").addClass("active");
+            
+            setTimeout(function() {
+
+                $("#dimmer").removeClass("active");
+
+                $('#modalDoacoes').modal('show');
+                carregaTabela1(idUsuario);
+
+            }, 1000);
+
         }
 
-        function fechaModal() {
+        function exibirModal2() {
+
+            $("#dimmer").addClass("active");
+
+            setTimeout(function() {
+
+                $("#dimmer").removeClass("active");
+
+                $('#modalEmpresas').modal('show');
+                carregaTabela2(idUsuario);
+
+            }, 1000);
+
+        }
+
+        function fechaModal1() {
+
             event.preventDefault();
-            $('.ui.basic.modal').modal('hide');
+                
+            $("#tbDoacoes > tr").each(function() {
+                $(this).remove();
+            });
+
+            $('#modalDoacoes').modal('hide');
+        
+        }
+
+        function fechaModal2() {
+
+            event.preventDefault();
+                
+            $("#tbEmpresas > tr").each(function() {
+                $(this).remove();
+            });
+
+            $('#modalEmpresas').modal('hide');
+
         }
 
         function deslogar () {
