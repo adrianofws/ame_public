@@ -22,10 +22,8 @@ if(count($result) > 0) {
 
     $idUsuarioLogado = $result[0]->getIdUsuario();
 
-    $_SESSION["idUsuarioLogado"] = $idUsuarioLogado;
-   
     echo json_encode(['STATUS' => true, 
-                      'ID_USUARIO_LOGADO' => $_SESSION["idUsuarioLogado"], 
+                      'ID_USUARIO_LOGADO' => $idUsuarioLogado, 
                       'RESULT' => $result]);
 
 } else {

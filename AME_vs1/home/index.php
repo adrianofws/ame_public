@@ -27,7 +27,7 @@
     <body>
 
     <div id="dimmer" class="ui active dimmer">
-        <div class="ui loader"></div>
+        <div class="ui text loader">Carregando...</div>
     </div>
         
         <div id="principal">
@@ -37,9 +37,9 @@
                 <nav class="buttons">
                     <ul>
                         <li id="login"><a class="login" href="../app/login/index.php">login</a></li>
-                        <li id="cadastro"><a class="cadastro" href="../app/cadastro/index.php">cadastro</a></li>
-                        <li id="doe"><a class="doe" href="../app/doacao/index.php">Doe vida</a></li>
-                        <li id="receberDoacao"><a class="conheca" href="../app/receberDoacao/index.php">receba doações</a></li>
+                        <li id="cadastro" style="cursor: pointer;"><a class="cadastro" href="../app/cadastro/index.php">cadastro</a></li>
+                        <li id="doe" style="cursor: pointer;" onclick="abrirDoe()"><a class="doe">Doe vida</a></li>
+                        <li id="receberDoacao" style="cursor: pointer;" onclick="abrirReceberDoacao()"><a class="conheca">receba doações</a></li>
                         <li style="cursor: pointer;" onclick="exibirModal()"> <a id="cadastros" class="contato">Unidades de espera</a></li>
                         <li id="deslogar" onclick="deslogar()"><a class="duvidas" href="#duvidas">Sair</a></li>
                     </ul>
@@ -390,7 +390,12 @@
 
     <script>
 
+        if(getUrlVar("idUsuario"))
+            var idUsuario = window.atob(getUrlVar("idUsuario"));
+
         $(document).ready(function() {
+
+            console.log("idUsuario: ", idUsuario);
 
             $("#modal").hide();
             $("#dimmer").removeClass("active");
@@ -400,7 +405,7 @@
             $("#cadastros").hide();
             $("#deslogar").hide();
 
-            if("<?php echo isset($_SESSION["idUsuarioLogado"]); ?>" != "") {
+            if(idUsuario) {
                 $("#doe").show();
                 $("#cadastros").show();
                 $("#receberDoacao").show();
@@ -408,6 +413,14 @@
             }
 
         });
+
+        function abrirReceberDoacao() {
+            location.href = '../app/receberDoacao/index.php?idUsuario=' + window.btoa(idUsuario);
+        }
+
+        function abrirDoe() {
+            location.href = '../app/doacao/index.php?idUsuario=' + window.btoa(idUsuario);
+        }
 
         function exibirModal() {
             $('.ui.basic.modal').modal('show');
@@ -420,17 +433,32 @@
 
         function deslogar () {
 
+            $("#dimmer").addClass("active");
+            $("body").css("overflow", "hidden");
+
             setTimeout(function() {
-                
-                $("body").css("overflow", "hidden");
-                $("#dimmer").addClass("active");
-                
-                <?php unset($_SESSION["idUsuarioLogado"]); ?>
-                
-            }, 2000);
+                location.href = "./index.php";
+            }, 1000);
 
-            document.location.reload(true);
+        }
 
+        function getUrlVar(variavel) {
+            
+            let query = window.location.search.substring(1);
+            let variaveis = query.split("&");
+            let valor;
+            
+            for (let i = 0; i < variaveis.length; i++) {
+
+                valor = variaveis[i].split("=");
+                
+                if (valor[0] == variavel) 
+                    return valor[1];
+            
+            }
+            
+            return false;
+        
         }
 
     </script>

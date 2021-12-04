@@ -140,7 +140,7 @@ include_once(filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/ame_public/AME_vs1/
                     $('#btnLogin').show();
 
                     if(result.STATUS) {
-                        location.href = "../../home/index.php";
+                        location.href = "../../home/index.php?idUsuario="+window.btoa(result.ID_USUARIO_LOGADO);
                     } else {
                         $('#alerta').show();
                     }
