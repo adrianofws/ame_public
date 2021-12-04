@@ -388,7 +388,7 @@
 
             <form class="ui form">
                 
-                <h1 class="ui dividing header">Doações Recebidas</h1>
+                <h1 class="ui dividing header">Empresas Cadastradas</h1>
 
                 <table class="ui celled table">
                     <thead>
